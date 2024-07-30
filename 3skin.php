@@ -38,64 +38,64 @@
         <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">Primary card title</h5>
-            <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p>
+            <h5 class="card-title"style="color: #BF6159;">Cetaphil Gentle Skin Cleanser</h5>
+            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
             <img src="img/ceta1.png" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">Primary card title</h5>
-            <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p>
+            <h5 class="card-title"style="color: #BF6159;">Cetaphil Oily Skin Cleanser</h5>
+            <!-- <p class="card-text"style="color: #5F5A56;">คลีนเซอร์เนื้อเจล ที่ผ่านการทดสอบทางคลินิกแล้วว่าช่วยทำความสะอาดผิวได้ล้ำลึก ขจัดความมันส่วนเกิน สิ่งสกปรกและเครื่องสำอางได้หมดจด</p> -->
             <img src="img/ceta2.png" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">Primary card title</h5>
-            <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p>
+            <h5 class="card-title"style="color: #BF6159;">Cetaphil Moisturising Lotion</h5>
+            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
             <img src="img/ceta3.png" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">Primary card title</h5>
-            <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p>
+            <h5 class="card-title"style="color: #BF6159;">Cetaphil Bright Healthy Night Comfort Cream</h5>
+            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
             <img src="img/ceta4.jpg" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">Primary card title</h5>
-            <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p>
+            <h5 class="card-title"style="color: #BF6159;">Cetaphil Bright Healthy Brightness Refresh Toner</h5>
+            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
             <img src="img/ceta5.jpg" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">Primary card title</h5>
-            <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p>
+            <h5 class="card-title"style="color: #BF6159;">Cetaphil Ultra Gentle Wash</h5>
+            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
             <img src="img/ceta6.png" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">Primary card title</h5>
-            <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p>
+            <h5 class="card-title"style="color: #BF6159;">Cetaphil Baby</h5>
+            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
             <img src="img/ceta7.png" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div>
         <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">Primary card title</h5>
-            <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p>
+            <h5 class="card-title"style="color: #BF6159;">Cetaphil Moisturizing Cream</h5>
+            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
             <img src="img/ceta.png" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div>
