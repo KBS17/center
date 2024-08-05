@@ -177,9 +177,7 @@
                 </div>
             </div>
 
-
-
-
+            
             <div class="card border-#BF6159  mb-3 mt-5 mx-3" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
                 <div class="card-body ">
                 <h5 class="card-title"style="color: #BF6159;">Inn Beauty Tiara Eyebrow Design</h5>
