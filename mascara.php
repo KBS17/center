@@ -336,9 +336,6 @@
                 <img src="img/JovinaMascaraMegaVolumePowerPlump.jpg" alt="Description" style="max-width: 100%; height: auto;">
                 </div>
             </div>
-
-
-
             
         </div>
         
