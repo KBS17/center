@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>ศูนย์กลางเครื่องสำอาง</title>
+    <title>Cushion</title>
     <link href="style.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -125,9 +125,9 @@
         </div> <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">Cherben Foundation Full Coverage SPF50+ PA+++</h5>
+            <h5 class="card-title"style="color: #BF6159;">Chaonang Radiance Skim Foundation SPF 30 PA+++</h5>
             <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/Cherben.jpg" alt="Description" style="max-width: 100%; height: auto;">
+            <img src="img/ChaonangFoundation.jpg" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div> <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->

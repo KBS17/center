@@ -338,6 +338,25 @@
             </div>
             
         </div>
+
+        <div class="card border-#BF6159  mb-3 mt-5 mx-3" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
+                <div class="card-body ">
+                <h5 class="card-title"style="color: #BF6159;">Canmake Quick Lash Curler มี 5 เบอร์</h5>
+                <img src="img/CanmakeQuickLashCurler.jpeg" alt="Description" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="card border-#BF6159  mb-3 mt-5 mx-3" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
+                <div class="card-body ">
+                <h5 class="card-title"style="color: #BF6159;">Rom&nd official rom&nd Han All Fix Mascara COLOR OPTIONS 3</h5>
+                <img src="img/Rom&ndofficialrom&ndHanAllFixMascara.jpeg" alt="Description" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+
+   
+        </div>
         
     </div>
 
