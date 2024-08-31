@@ -133,14 +133,6 @@
             <img src="img/CANMAKEGlowFluerCheekBlendType.jpg" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div> 
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">CANMAKE Fresh Blush Box Cream Cheek 3.9g</h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/CANMAKEFreshBlushBox.jpg" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div>
 
 
 

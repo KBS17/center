@@ -38,11 +38,11 @@
 
             <ul class="nav nav-pills">
               <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">สมัครสมาชิก</a></li>
               <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
               <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
               <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="/html-css-layout/login.php" class="nav-link active" aria-current="page">login</a></li>
+              <li class="nav-item"><a href="form_login.php" class="nav-link active" aria-current="page">login</a></li>
             </ul>
           </header>
         </div>

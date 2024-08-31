@@ -32,34 +32,37 @@
             <!-- question 1-->
             <div class="question active">
                 <div class="radio-list">
-                    <h1 class="text-center">ระหว่างวันคุณรู้สึกว่าผิวหน้าเป็นอย่างไรมากที่สุด</h1>
-                    <input name="question1" id="question1" type="text" value="ระหว่างวันคุณรู้สึกว่าผิวหน้าเป็นอย่างไรมากที่สุด">
-                    <div class="radio-item"><input name="answer1" id="answer1_1" type="radio" value="รู้สึกว่าหน้าแห้ง ระคายเคือง มีผื่นคันง่าย"><label for="answer1_1">รู้สึกว่าหน้าแห้ง ระคายเคือง มีผื่นคันง่าย</label></div>
-                    <div class="radio-item"><input name="answer1" id="answer1_2" type="radio" value="รู้สึกว่าผิวบริเวณแก้มตึงง่าย ต่างกับบริเวณอื่นๆ"><label for="answer1_2">รู้สึกว่าผิวบริเวณแก้มตึงง่าย ต่างกับบริเวณอื่นๆ</label></div>
-                    <div class="radio-item"><input name="answer1" id="answer1_3" type="radio" value="รู้สึกว่าผิวหน้าดี ไม่มีปัญหา"><label for="answer1_3">รู้สึกว่าผิวหน้าดี ไม่มีปัญหา</label></div>
-                    <div class="radio-item"><input name="answer1" id="answer1_4" type="radio" value="รู้สึกว่าหน้ามันเยิ้มง่ายและบ่อย"><label for="answer1_4">รู้สึกว่าหน้ามันเยิ้มง่ายและบ่อย</label></div>
+                    <h1 class="text-center">สภาพผิวของคุณเป็นเเบบไหน</h1>
+
+                    <div class="radio-item"><input name="answer1" id="answer1_1" type="radio" value="เป็นผิวเเพ้ง่าย"><label for="answer1_1">เป็นผิวเเพ้ง่าย</label></div>
+                    <div class="radio-item"><input name="answer1" id="answer1_2" type="radio" value="เป็นผิวปกติ"><label for="answer1_2">เป็นผิวปกติ</label></div>
                     <button type="button" class="btn btn-primary next mt-5">Next</button>
                 </div>
             </div>
 
-            <!-- question 2-->
-            <div class="question">
-                <div class="radio-list">
-                    <h1>รูขุมขนบริเวณแก้มของคุณเป็นอย่างไร</h1>
-                    <input name="question2" id="question2" type="text" value="รูขุมขนบริเวณแก้มของคุณเป็นอย่างไร">
-                    <div class="radio-item"><input name="answer2" id="answer2_1" type="radio" value="ค่อนข้างเล็ก ถ้าไม่สังเกตุไม่เห็น"><label for="answer2_1">ค่อนข้างเล็ก ถ้าไม่สังเกตุไม่เห็น</label></div>
-                    <div class="radio-item"><input name="answer2" id="answer2_3" type="radio" value="ค่อนข้างกว้าง ถ้าสังเกตุก็เห็น"><label for="answer2_3">ค่อนข้างกว้าง ถ้าสังเกตุก็เห็น</label></div>
-                    <button type="button" class="btn btn-primary next mt-5">Next</button>
+
+                <!-- question 2-->
+                <div class="question">
+                    <div class="radio-list">
+                        <h1 class="text-center">ประเภทผิวของคุณเป็นเเบบไหน</h1>
+                        
+                        <div class="radio-item"><input name="answer2" id="answer2_1" type="radio" value="ผิวมัน (Oily skin)"><label for="answer2_1">ผิวมัน (Oily skin)</label></div>
+                        <div class="radio-item"><input name="answer2" id="answer2_2" type="radio" value="ผิวผสม (Combination skin)"><label for="answer2_2">ผิวผสม (Combination skin)</label></div>
+                        <div class="radio-item"><input name="answer2" id="answer2_3" type="radio" value="ผิวแห้ง (Dry skin)"><label for="answer2_3">ผิวแห้ง (Dry skin)</label></div>
+                        <button type="button" class="btn btn-primary next mt-5">Next</button>
+                    </div>
                 </div>
-            </div>
+
 
             <!-- question 3-->
             <div class="question">
                 <div class="radio-list">
-                    <h1>รูขุมขนบริเวณจมูกหรือรอบๆจมูกของคุณเป็นแบบไหน</h1>
-                    <input name="question3" id="question3" type="text" value="รูขุมขนบริเวณจมูกหรือรอบๆจมูกของคุณเป็นแบบไหน">
-                    <div class="radio-item"><input name="answer3" id="answer3_1" type="radio" value="ค่อนข้างเล็ก ถ้าไม่สังเกตุไม่เห็น"><label for="answer3_1">ค่อนข้างเล็ก ถ้าไม่สังเกตุไม่เห็น</label></div>
-                    <div class="radio-item"><input name="answer3" id="answer3_3" type="radio" value="ค่อนข้างกว้าง ถ้าสังเกตุก็เห็น"><label for="answer3_3">ค่อนข้างกว้าง ถ้าสังเกตุก็เห็น</label></div>
+                    <h1 class="text-center" >ปัญหาผิวของคุณมีอะไรบ้าง</h1>
+                    
+                    <div class="radio-item"><input name="answer3" id="answer3_1" type="radio" value="มีสิว"><label for="answer3_1">มีสิว</label></div>
+                    <div class="radio-item"><input name="answer3" id="answer3_2" type="radio" value="มีรอยดำและรอยแดง"><label for="answer3_2">มีรอยดำและรอยแดง</label></div>
+                    <div class="radio-item"><input name="answer3" id="answer3_3" type="radio" value="มีริ้วรอยและความเหี่ยวย่น"><label for="answer3_3">มีริ้วรอยและความเหี่ยวย่น</label></div>
+                    <div class="radio-item"><input name="answer3" id="answer3_4" type="radio" value="มีรูขุมขนกว้าง"><label for="answer3_4">มีรูขุมขนกว้าง</label></div>
                     <button type="button" class="btn btn-primary next mt-5">Next</button>
                 </div>
             </div>
@@ -67,12 +70,12 @@
             <!-- question 4-->
             <div class="question">
                 <div class="radio-list">
-                    <h1>ผิวบริเวณรอบๆปาก ตา หรือแก้ม มักแห้งลอกเป็นขุยเมื่ออยู่ในที่อากาศเย็นๆ</h1>
-                    <input name="question4" id="question4" type="text" value="ผิวบริเวณรอบๆปาก ตา หรือแก้ม มักแห้งลอกเป็นขุยเมื่ออยู่ในที่อากาศเย็นๆ">
-                    <div class="radio-item"><input name="answer4" id="answer4_1" type="radio" value="รู้สึกบ่อยครั้ง"><label for="answer4_1">รู้สึกบ่อยครั้ง</label></div>
-                    <div class="radio-item"><input name="answer4" id="answer4_2" type="radio" value="เป็นบางครั้ง"><label for="answer4_2">เป็นบางครั้ง</label></div>
-                    <div class="radio-item"><input name="answer4" id="answer4_3" type="radio" value="ไม่รู้สึกเลย"><label for="answer4_3">ไม่รู้สึกเลย</label></div>
-                    <div class="radio-item"><input name="answer4" id="answer4_4" type="radio" value="นานๆครั้งจะรู้สึก"><label for="answer4_4">นานๆครั้งจะรู้สึก</label></div>
+                    <h1 class="text-center" >สีผิวของคุณคืออะไร</h1>
+                    
+                    <div class="radio-item"><input name="answer4" id="answer4_1" type="radio" value="ผิวสีขาว (Fair Skin)"><label for="answer4_1">ผิวสีขาว(Fair Skin)</label></div>
+                    <div class="radio-item"><input name="answer4" id="answer4_2" type="radio" value="ผิวสีเหลือง (Yellowish skin)"><label for="answer4_2">ผิวสีเหลือง (Yellowish skin)</label></div>
+                    <div class="radio-item"><input name="answer4" id="answer4_3" type="radio" value="ผิวสีเเทน (Tan Skin)"><label for="answer4_3">ผิวสีเเทน (Tan Skin)</label></div>
+                    
                     <button type="submit" class="btn btn-primary next mt-5">ส่งคำตอบ</button>
                 </div>
             </div>
@@ -88,7 +91,9 @@
             $('.next').click(function () {
                 var current = $(this).closest('.question');
                 var next = current.next('.question');
-                if (current.find('input:radio:checked').length > 0) {
+                var isChecked = current.find('input:radio:checked').length > 0 || current.find('input:checkbox:checked').length > 0;
+
+                if (isChecked) {
                     if (next.length) {
                         current.removeClass('active');
                         next.addClass('active');

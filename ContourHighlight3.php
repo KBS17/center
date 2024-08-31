@@ -43,78 +43,8 @@
             <img src="img/JUDYDOLL2IN1HighlighterContour.png" alt="Description" style="max-width: 100%; height: auto;">
             </div>
         </div>
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">JUDYDOLL GLAZED BEAUTY-6 Color Multi functional Palette</h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">คลีนเซอร์เนื้อเจล ที่ผ่านการทดสอบทางคลินิกแล้วว่าช่วยทำความสะอาดผิวได้ล้ำลึก ขจัดความมันส่วนเกิน สิ่งสกปรกและเครื่องสำอางได้หมดจด</p> -->
-            <img src="img/JUDYDOLLGLAZEDBEAUTY-6Color.png" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div>
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">JUDYDOLL Contour Palette Duo</h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/JUDYDOLLContourPaletteDuo.png" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div>
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">JUDYDOLL Highlighter & Contour Duo</h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/JUDYDOLLHighlighter&ContourDuo.png" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div>
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">JUDYDOLL Dual-Headed Under Eye Makeup Eyeliner</h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/JUDYDOLLDual-Headed.png" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div>
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">JUDYDOLL 2 in 1 Blush Highlight Palette</h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/JUDYDOLL2in1Blush.png" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div>
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">JUDYDOLL Dual-Color Highlighter Palette</h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/JUDYDOLLDual-ColorHighlighter.png" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div>
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">JUDYDOLL Starlight Highlighting Powder</h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/JUDYDOLLStarlightHighlighting.png" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div>
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">JUDYDOLL 2 Shades Contour Palette </h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/JUDYDOLL2Shades.png" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div> 
-        <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
-            <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
-            <div class="card-body ">
-            <h5 class="card-title"style="color: #BF6159;">JUDYDOLL Stereo Face Cosmetic Disc</h5>
-            <!-- <p class="card-text"style="color: #5F5A56;">เอาเป็นว่าชื่อ....</p> -->
-            <img src="img/JUDYDOLLStereoFace.png" alt="Description" style="max-width: 100%; height: auto;">
-            </div>
-        </div> 
+
+       
         <div class="card border-#BF6159  mb-3 mt-5 mx-5" style="max-width: 16rem; min-height: 20rem; border: 2px solid #BF6159; ">
             <!-- <div class="card-header"style="color: #BF6159;">Header</div> -->
             <div class="card-body ">
