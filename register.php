@@ -46,7 +46,7 @@
         <div class="card" style="width:100%; max-width: 500px;">
           <div class="card-body">
             <h2 class="text-center my-4">Register</h2>
-            <form method="post" action = "insert_register.php">
+            <form method="post" action = "insert_register.php" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" name ="username" placeholder="Enter your username" required>
@@ -69,7 +69,7 @@
               </div>
               <div class="mb-3">
                 <label for="Profilepicture" class="form-label">Profile picture</label>
-                <input type="file" class="form-control" id="Profilpictureil" name ="Profilepicture" placeholder="Enter your Profilepicture" required>
+                <input type="file" class="form-control" id="Profilepicture" name ="Profilepicture" placeholder="Enter your Profilepicture" required>
               </div>
               
               <div class="d-grid mb-3">

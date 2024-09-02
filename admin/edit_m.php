@@ -333,12 +333,13 @@ include "../config/config.php";
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 200px;">number</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 200px;">Email</th>
                                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 200px;">profile</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 200px;">delete</th>
                                                 
                                             </tr>
                                         </thead>
 
                                         <?php
-                            $sql = "SELECT * FROM member ";
+                            $sql = "SELECT * FROM members ";
                             $result = mysqli_query($conn, $sql);
                             // ดึงข้อมูลในการวนลูปอารเรย์ โดยใช้ลูป while
                             $i = 1;
@@ -347,12 +348,16 @@ include "../config/config.php";
 
 
                                         <td><?= $i ?></td>
-                                            <td><?= $row["m_name"] ?></td>
-                                            <td><?= $row["m_Age"] ?></td>
-                                            <td><?= $row["m_number"] ?></td>
-                                            <td><?= $row["m_Email"] ?></td>
-                                            <td><?= $row["m_profile_picture"] ?></td>
+                                            <td><?= $row["username"] ?></td>
+                                            <td><?= $row["age"] ?></td>
+                                            <td><?= $row["number"] ?></td>
+                                            <td><?= $row["email"] ?></td>
+                                            <td><?= $row["profile_picture"] ?></td>
+
+                                            <td><button class="delete-button" onclick="window.location.href='member_delete.php?id=<?= $row['m_id'] ?>'">🗑️</button></td>
                                         </tr>
+
+
 
                                         <?php
                                 $i++;

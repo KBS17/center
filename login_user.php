@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     echo "tast",$username,$password;
     // Prepare and execute the SQL statement to prevent SQL injection
-    $stmt = $conn->prepare("SELECT * FROM member WHERE m_name = ?");
+    $stmt = $conn->prepare("SELECT * FROM members WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -19,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = $result->fetch_assoc();
         
         // Verify the entered password with the hashed password from the database
-        if (password_verify($password, $row['m_password'])) {
-            $_SESSION['m_name'] = 1;
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['username'] = 1;
 
             // If you want to retrieve and use the profile picture
-            $_SESSION['m_profile_picture'] = $row['m_profile_picture'];
+            $_SESSION['profile_picture'] = $row['profile_picture'];
 
             header('Location: index_log.php');
             exit();

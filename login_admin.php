@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     error_log("Attempted login with username: " . $username);
 
     // Prepare and execute the SQL statement to prevent SQL injection
-    $stmt = $conn->prepare("SELECT * FROM admin WHERE admin_username = ?");
+    $stmt = $conn->prepare("SELECT * FROM admins WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         error_log("User found: " . print_r($row, true));
 
         // Verify the entered password with the hashed password from the database
-        if (password_verify($password, $row['admin_password'])) {
+        if (password_verify($password, $row['password'])) {
             // Regenerate session ID to prevent session fixation attacks
             session_regenerate_id();
 

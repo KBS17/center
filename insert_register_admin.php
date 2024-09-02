@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare the SQL statement
-    $stmt = $conn->prepare("INSERT INTO admin (admin_username, admin_password, admin_email, admin_tel) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO admins (username, password, email, number) VALUES (?, ?, ?, ?)");
     
     // Bind parameters in correct order
     $stmt->bind_param("ssss", $username, $hashed_password, $email, $number);

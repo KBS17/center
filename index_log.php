@@ -2,7 +2,7 @@
 session_start();
 include "config/config.php";
 
-if (!isset($_SESSION['m_name'])) {
+if (!isset($_SESSION['username'])) {
     header('Location: form_login.php');
     exit();
 }
@@ -52,7 +52,7 @@ if (!isset($_SESSION['m_name'])) {
                             <ul class="nav nav-pills">
                                 
                     <a href="#"><button type="button" class="btn btn-success ">
-                            <?php echo "Account : " . $_SESSION['m_name']; ?></button></a>
+                            <?php echo "Account : " . $_SESSION['username']; ?></button></a>
 
 
                     <li class="nav-item mx-4"><a href="logout.php"
@@ -71,7 +71,7 @@ if (!isset($_SESSION['m_name'])) {
                     <div class="d-flex justify-content-center align-items-center">
                             <ul class="nav nav-pills">
                     <a href="#"><button type="button" class="btn btn-success me-2">
-                            <?php echo "Account : " . $_SESSION['m_name']; ?></button></a>
+                            <?php echo "Account : " . $_SESSION['username']; ?></button></a>
                 </ul>
                 <ul class="nav nav-pills">
                     <a href="logout.php"><button type="button" class="btn btn-danger me-4">Logout</button></a></li>
@@ -94,7 +94,7 @@ if (!isset($_SESSION['m_name'])) {
             <div class="d-flex justify-content-center align-items-center">
                 <ul class="nav nav-pills">
                     <a href="#"><button type="button" class="btn btn-success me-2">
-                            <?php echo "Account : " . $_SESSION['m_name']; ?></button></a>
+                            <?php echo "Account : " . $_SESSION['username']; ?></button></a>
                 </ul>
                 <ul class="nav nav-pills">
                     <a href="logout.php"><button type="button" class="btn btn-danger me-2">Logout</button></a>
