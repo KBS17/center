@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    echo "tast",$username,$password;
+
     // Prepare and execute the SQL statement to prevent SQL injection
     $stmt = $conn->prepare("SELECT * FROM members WHERE username = ?");
     $stmt->bind_param("s", $username);
@@ -20,21 +20,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         // Verify the entered password with the hashed password from the database
         if (password_verify($password, $row['password'])) {
-            $_SESSION['username'] = 1;
-
-            // If you want to retrieve and use the profile picture
+            $_SESSION['logStatus'] = 1;
+            $_SESSION['userId'] = $row['id'];
+            $_SESSION['username'] = $row['username'];
             $_SESSION['profile_picture'] = $row['profile_picture'];
 
-            header('Location: index_log.php');
+            // Redirect to the logged-in page
+            header('Location: index.php');
             exit();
         } else {
-            echo "Login failed1. Please check your username and password.";
+            // Handle login failure
+            echo "Login failed. Please check your username and password.";
         }
     } else {
-        echo "Login failed2. Please check your username and password.";
+        // Handle login failure
+        echo "Login failed. Please check your username and password.";
     }
 
-    // Close the statement
+    // Close the statement and connection
     $stmt->close();
     $conn->close();
 } else {

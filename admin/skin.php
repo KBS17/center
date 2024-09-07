@@ -2,8 +2,8 @@
 session_start();
 include "../config/config.php";
 
-// Fetch members data
-$sql = "SELECT * FROM members";
+// Fetch problems data
+$sql = "SELECT * FROM problems";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -88,29 +88,32 @@ $result = $stmt->get_result();
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>Profile</th>
-                                            <th>Name</th>
-                                            <th>Age</th>
-                                            <th>Number</th>
-                                            <th>Email</th>
-                                            <th>Delete</th>
+                                            <th>Skin</th>
+                                            <th>Product</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php while ($row = $result->fetch_assoc()) { ?>
+                                        <?php while ($row = $result->fetch_assoc()) {
+                                            $problemId = $row['id'];
+                                            // Prepare and execute the count query
+                                            $sql2 = "SELECT COUNT(*) as total FROM analysis WHERE problems_id = ?";
+                                            $stmt2 = $conn->prepare($sql2);
+                                            $stmt2->bind_param("i", $problemId);
+                                            $stmt2->execute();
+                                            $result2 = $stmt2->get_result();
+                                            $countRow = $result2->fetch_assoc();
+                                            $total = $countRow['total'];
+                                        ?>
                                             <tr>
                                                 <td><?= htmlspecialchars($row['id']) ?></td>
+                                                <td><?= htmlspecialchars($row['problems']) ?></td>
+                                                <td><?= htmlspecialchars($total) ?></td>
                                                 <td>
-                                                    <div class="text-center">
-                                                        <img src="../uploads/user/<?= htmlspecialchars($row['profile_picture']) ?>" style="max-height: 50px;" class="rounded img-fluid">
-                                                    </div>
-                                                </td>
-                                                <td><?= htmlspecialchars($row['username']) ?></td>
-                                                <td><?= htmlspecialchars($row['age']) ?></td>
-                                                <td><?= htmlspecialchars($row['number']) ?></td>
-                                                <td><?= htmlspecialchars($row['email']) ?></td>
-                                                <td><button class="btn btn-danger"
-                                                        onclick="window.location.href='member_delete.php?id=<?= htmlspecialchars($row['id']) ?>'"><i class="bi bi-trash3-fill"></i></button>
+                                                    <a class="btn btn-primary" href="skin_pro.php?problem_id=<?= htmlspecialchars($row['id']) ?>">
+                                                        แสดงสินค้า
+                                                    </a>
+
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -131,7 +134,6 @@ $result = $stmt->get_result();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.1.5/js/dataTables.bootstrap5.js"></script>
-
 
     <script>
         $(document).ready(function() {

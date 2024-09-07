@@ -2,8 +2,9 @@
 session_start();
 include "../config/config.php";
 
+$id = isset($_GET['problem_id']) ? intval($_GET['problem_id']) : 0;
 // Fetch members data
-$sql = "SELECT * FROM members";
+$sql = "SELECT products.* FROM products INNER JOIN analysis ON analysis.product_id = products.id WHERE analysis.problems_id =  $id";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -79,41 +80,44 @@ $result = $stmt->get_result();
                 <div class="container-fluid">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
+                        <div class="d-flex justify-content-between  align-items-center  card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">จัดการข้อมูลผู้ใช้</h6>
+                            <a href="skin_add.php" class="btn btn-outline-success"> Add Product</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered dataTable table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>id</th>
-                                            <th>Profile</th>
                                             <th>Name</th>
-                                            <th>Age</th>
-                                            <th>Number</th>
-                                            <th>Email</th>
-                                            <th>Delete</th>
+                                            <th>Price</th>
+                                            <th>Description</th>
+                                            <th>Types</th>
+                                            <th>Catagories</th>
+                                            <th>Brands</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php while ($row = $result->fetch_assoc()) { ?>
                                             <tr>
-                                                <td><?= htmlspecialchars($row['id']) ?></td>
+                                                <td class="description-cell"><?= !empty($row['pro_name']) ? htmlspecialchars($row['pro_name']) : 'N/A' ?></td>
+                                                <td><?= !empty($row['pro_price']) ? htmlspecialchars($row['pro_price']) : 'N/A' ?></td>
+                                                <td class="description-cell"><?= !empty($row['description']) ? htmlspecialchars($row['description']) : 'N/A' ?></td>
+                                                <td><?= !empty($row['type_id']) ? htmlspecialchars($row['type_id']) : 'N/A' ?></td>
+                                                <td><?= !empty($row['categories_id']) ? htmlspecialchars($row['categories_id']) : 'N/A' ?></td>
+                                                <td><?= !empty($row['brand_id']) ? htmlspecialchars($row['brand_id']) : 'N/A' ?></td>
                                                 <td>
-                                                    <div class="text-center">
-                                                        <img src="../uploads/user/<?= htmlspecialchars($row['profile_picture']) ?>" style="max-height: 50px;" class="rounded img-fluid">
+                                                    <div class="d-flex ">
+
+                                                        <button class="btn btn-danger mx-2" onclick="deleteProduct(<?= htmlspecialchars($row['id']) ?> )">
+                                                            <i class="bi bi-trash3-fill"></i>
+                                                        </button>
                                                     </div>
-                                                </td>
-                                                <td><?= htmlspecialchars($row['username']) ?></td>
-                                                <td><?= htmlspecialchars($row['age']) ?></td>
-                                                <td><?= htmlspecialchars($row['number']) ?></td>
-                                                <td><?= htmlspecialchars($row['email']) ?></td>
-                                                <td><button class="btn btn-danger"
-                                                        onclick="window.location.href='member_delete.php?id=<?= htmlspecialchars($row['id']) ?>'"><i class="bi bi-trash3-fill"></i></button>
                                                 </td>
                                             </tr>
                                         <?php } ?>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -141,6 +145,14 @@ $result = $stmt->get_result();
                 "searching": true
             });
         });
+    </script>
+
+    <script>
+        function deleteProduct(proId) {
+            if (confirm("Are you sure you want to delete this product?")) {
+                window.location.href = 'skin_delete.php?id=' + proId;
+            }
+        }
     </script>
 
 </body>

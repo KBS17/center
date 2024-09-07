@@ -1,35 +1,45 @@
 <?php
 include("config/config.php");
+session_start(); // เริ่มต้นเซสชัน
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $questions = [
-        'question1' => $_POST['question1'],
-        'answer1' => $_POST['answer1'],
-        'question2' => $_POST['question2'],
-        'answer2' => $_POST['answer2'],
-        'question3' => $_POST['question3'],
-        'answer3' => $_POST['answer3'],
-        'question4' => $_POST['question4'],
-        'answer4' => $_POST['answer4'],
-    ];
+    // รับค่าจากฟอร์ม
+    $a1 = $_POST['answer1'];
+    $a2 = $_POST['answer2'];
+    $a3 = $_POST['answer3'];
+    $a4 = $_POST['answer4'];
+    $a5 = $_POST['answer5'];
+    $member = $_SESSION['userId'];
 
-    // print_r($questions);
+    // ตัดคำหลังช่องว่าง
+    $a1 = strtok($a1, ' ');
+    $a2 = strtok($a2, ' ');
+    $a3 = strtok($a3, ' ');
+    $a4 = strtok($a4, ' ');
+    $a5 = strtok($a5, ' ');
 
-    $stmt = $conn->prepare("INSERT INTO question (question_name, question_answer) VALUES (?, ?)");
+    // เตรียมคำสั่ง SQL
+    $stmt = $conn->prepare("INSERT INTO log_analy_answer (member_id, answer_1, answer_2, answer_3, answer_4,answer_5) VALUES (?, ?, ?, ?, ?, ?)");
 
-    for ($i = 1; $i <= 4; $i++) {
-        $question_name = $questions["question{$i}"];
-        $question_answer = $questions["answer{$i}"];
-        $stmt->bind_param("ss", $question_name, $question_answer);
-        $stmt->execute();
+    // ตรวจสอบความสำเร็จของการเตรียมคำสั่ง
+    if ($stmt === false) {
+        die('Prepare failed: ' . htmlspecialchars($conn->error));
     }
 
+    // ผูกพารามิเตอร์
+    $stmt->bind_param("ssssss", $member, $a1, $a2, $a3, $a4,$a5);
+
+    // ดำเนินการคำสั่ง
+    if ($stmt->execute()) {
+        header("Location: analysis.php");
+    } else {
+        echo "Error: " . htmlspecialchars($stmt->error);
+    }
+
+    // ปิดการเชื่อมต่อ
     $stmt->close();
     $conn->close();
-    echo "Survey submitted successfully!";
-    // echo print_r($questions);
 } else {
     echo "Invalid request.";
 }
 ?>
-

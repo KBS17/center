@@ -20,10 +20,9 @@
     }
     .container {
       display: flex;
-      justify-content: flex-start; /* จัดวางกล่องไปทางด้านซ้าย */
+      justify-content: center; /* จัดวางกล่องให้อยู่ตรงกลาง */
       align-items: center;
       height: 100vh;
-      padding-left: 0px; /* เพิ่มระยะขอบซ้ายเพื่อขยับกล่อง */
     }
   </style>
 </head>
@@ -34,42 +33,21 @@
         <h2 class="text-center my-4">Login Admin</h2>
         <form method="post" action="login_admin.php">
           <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="admin_id" name="admin_id" placeholder="Enter your username" required>
+            <label for="admin_id" class="form-label">Username</label>
+            <input type="text" class="form-control" id="admin_id" name="admin_id" placeholder="Enter your username" required autocomplete="username">
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="admin_password" name="admin_password" placeholder="Enter your password" required>
+            <label for="admin_password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="admin_password" name="admin_password" placeholder="Enter your password" required autocomplete="current-password">
           </div>
           <div class="d-grid mb-3">
             <button type="submit" class="btn btn-outline-primary">Login</button>
-          </div>
-          <div class="text-center mb-3">
-            <span>or</span>
-          </div>
-          <div class="d-grid mb-3">
-            <button type="button" class="btn btn-outline-danger" onclick="googleLogin()">Login with Google</button>
-          </div>
-          <div class="d-grid">
-            <button type="button" class="btn btn-outline-success" onclick="lineLogin()">Login with LINE</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
-  <script>
-    function googleLogin() {
-      // Implement Google login logic here
-      alert('Google login is not implemented yet.');
-    }
-
-    function lineLogin() {
-      // Implement LINE login logic here
-      alert('LINE login is not implemented yet.');
-    }
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>

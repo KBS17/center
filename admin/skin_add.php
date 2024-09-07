@@ -1,13 +1,14 @@
 <?php
-session_start();
-include "../config/config.php";
+include("../config/config.php");
 
-// Fetch members data
-$sql = "SELECT * FROM members";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$result = $stmt->get_result();
+$sql1 = "SELECT * FROM products ";
+$result1 = mysqli_query($conn, $sql1);
+$sql2 = "SELECT * FROM problems ";
+$result2 = mysqli_query($conn, $sql2);
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +53,7 @@ $result = $stmt->get_result();
             </li>
             <hr class="sidebar-divider d-none d-md-block">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-box-arrow-right"></i><span>logout </span></a>
+                <a class="nav-link" href="#"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
             </li>
         </ul>
         <!-- End of Sidebar -->
@@ -75,79 +76,53 @@ $result = $stmt->get_result();
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
+                <!-- Content Example -->
                 <div class="container-fluid">
-                    <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">จัดการข้อมูลผู้ใช้</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Add Analysis</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered dataTable table-hover" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Profile</th>
-                                            <th>Name</th>
-                                            <th>Age</th>
-                                            <th>Number</th>
-                                            <th>Email</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php while ($row = $result->fetch_assoc()) { ?>
-                                            <tr>
-                                                <td><?= htmlspecialchars($row['id']) ?></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <img src="../uploads/user/<?= htmlspecialchars($row['profile_picture']) ?>" style="max-height: 50px;" class="rounded img-fluid">
-                                                    </div>
-                                                </td>
-                                                <td><?= htmlspecialchars($row['username']) ?></td>
-                                                <td><?= htmlspecialchars($row['age']) ?></td>
-                                                <td><?= htmlspecialchars($row['number']) ?></td>
-                                                <td><?= htmlspecialchars($row['email']) ?></td>
-                                                <td><button class="btn btn-danger"
-                                                        onclick="window.location.href='member_delete.php?id=<?= htmlspecialchars($row['id']) ?>'"><i class="bi bi-trash3-fill"></i></button>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <form action="insert_analysis.php" method="post">
+                                <div class="col">
+                                    <!-- Product Categories -->
+                                    <div class="mb-3">
+                                        <label for="product" class="form-label">Products</label>
+                                        <select class="form-select" name="product" aria-label="product" required>
+                                            <option selected disabled>Select Products</option>
+                                            <?php while ($products = $result1->fetch_assoc()): ?>
+                                                <option value=<?= $products['id'] ?>><?= $products['pro_name'] ?></option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+
+                                    <!-- Product Brands -->
+                                    <div class="mb-3">
+                                        <label for="skin" class="form-label">Skin</label>
+                                        <select class="form-select" name="skin" aria-label="skin" required>
+                                            <option selected disabled>Select Skin</option>
+                                            <?php while ($problems = $result2->fetch_assoc()): ?>
+                                                <option value=<?= $problems['id'] ?>><?= $problems['problems'] ?></option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="my-5">
+                                    <!-- Save and Cancel Buttons -->
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                    <a href="products.php" class="btn btn-danger">Cancel</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <!-- /.container-fluid -->
                 </div>
+
                 <!-- End of Main Content -->
             </div>
-            <!-- End of Content Wrapper -->
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.bootstrap5.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable({
-                "pageLength": 10,
-                "ordering": true,
-                "searching": true
-            });
-        });
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
-
-<?php
-$stmt->close();
-$conn->close(); // Close the database connection
-?>
