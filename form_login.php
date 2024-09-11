@@ -75,9 +75,6 @@
           <div class="text-center mb-3">
             <span>or</span>
           </div>
-          <div class="d-grid mb-3">
-            <button type="button" class="btn btn-outline-danger" onclick="googleLogin()">Login with Google</button>
-          </div>
           <div class="d-grid">
             <button type="button" class="btn btn-outline-success" onclick="lineLogin()">Login with LINE</button>
           </div>
@@ -90,10 +87,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   <script>
-    function googleLogin() {
-      // Implement Google login logic here
-      alert('Google login is not implemented yet.');
-    }
+
 
     function lineLogin() {
       // Implement LINE login logic here

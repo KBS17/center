@@ -10,7 +10,13 @@ $sql1 = "SELECT * FROM categories ";
 $result1 = mysqli_query($conn, $sql1);
 $sql2 = "SELECT * FROM brands ";
 $result2 = mysqli_query($conn, $sql2);
+
+
+
+
 ?>
+
+
 
 
 <!doctype html>
@@ -481,6 +487,11 @@ $result2 = mysqli_query($conn, $sql2);
       <p>ช่องทางการติดต่อ
         tel: 122333333333_
       </p>
+
+          <!-- Footer Section -->
+    <footer class="container-fluid bg-light mt-5 py-3 text-center">
+        <p class="mb-0">All rights reserved @CSUBooK Shop. 2024</p>
+    </footer>
 
 
     </div>
