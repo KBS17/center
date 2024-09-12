@@ -123,7 +123,7 @@ $result2 = mysqli_query($conn, $sql2);
     </div>
 
 
-    <div class="container px-4 " id="featured-7">
+    <!-- <div class="container px-4 " id="featured-7">
       <br>
       <h2 class="pb-2 border-bottom text-center">skin care</h2>
     </div>
@@ -131,7 +131,7 @@ $result2 = mysqli_query($conn, $sql2);
     <div class="row g-5 py-6 row-cols-2 row-cols-lg-6 pt-5">
       <div class="feature col ">
         <div class=" container-fluid feature-icon d-inline-flex align-items-center justify-content-center  fs-2 mb-3">
-          <img src="img/3.png" class="rounded-circle" alt="" width="110" height="120">
+          <img src="img/3.jpg" class="rounded-circle" alt="" width="110" height="120">
         </div>
         <h6 class="fs-6 text-body-emphasis text-center">Laneige Water Sleeping Mask</h6>
         </a>
@@ -185,6 +185,11 @@ $result2 = mysqli_query($conn, $sql2);
 
     </div>
 
+
+
+
+
+
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
 
@@ -193,11 +198,11 @@ $result2 = mysqli_query($conn, $sql2);
             <div class="card shadow-sm">
               <div
                 class=" container-fluid feature-icon d-inline-flex align-items-center justify-content-center  fs-2 mb-3 pt-5">
-                <img src="img/image 1.png" alt="" width="50" height="100">
+                <img src="img/image 1.png" alt="" width="150" height="150">
               </div>
 
               <div class="card-body">
-                <p class="card-text">Lorem ipsum Dolor</p>
+                <p class="card-text">SKINTIFIC 5X Ceramide Barrier Moisture Gel</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
 
@@ -213,7 +218,7 @@ $result2 = mysqli_query($conn, $sql2);
             <div class="card shadow-sm">
               <div
                 class=" container-fluid feature-icon d-inline-flex align-items-center justify-content-center  fs-2 mb-3 pt-5">
-                <img src="img/image 2.png" alt="" width="50" height="100">
+                <img src="img/image 2.png" alt="" width="150" height="150">
               </div>
 
               <div class="card-body">
@@ -233,7 +238,7 @@ $result2 = mysqli_query($conn, $sql2);
             <div class="card shadow-sm">
               <div
                 class=" container-fluid feature-icon d-inline-flex align-items-center justify-content-center  fs-2 mb-3 pt-5">
-                <img src="img/image 3.png" alt="" width="200" height="100">
+                <img src="img/image 3.jpeg" alt="" width="150" height="150">
               </div>
 
               <div class="card-body">
@@ -253,7 +258,7 @@ $result2 = mysqli_query($conn, $sql2);
             <div class="card shadow-sm">
               <div
                 class=" container-fluid feature-icon d-inline-flex align-items-center justify-content-center  fs-2 mb-3 pt-5">
-                <img src="img/image 4.png" alt="" width="200" height="100">
+                <img src="img/image 4.jpeg" alt="" width="150" height="150">
               </div>
 
               <div class="card-body">
@@ -272,7 +277,7 @@ $result2 = mysqli_query($conn, $sql2);
             <div class="card shadow-sm">
               <div
                 class=" container-fluid feature-icon d-inline-flex align-items-center justify-content-center  fs-2 mb-3 pt-3">
-                <img src="img/image 5.png" alt="" width="50" height="130">
+                <img src="img/image 5.jpeg" alt="" width="150" height="175">
               </div>
 
               <div class="card-body">
@@ -290,7 +295,7 @@ $result2 = mysqli_query($conn, $sql2);
             <div class="card shadow-sm">
               <div
                 class=" container-fluid feature-icon d-inline-flex align-items-center justify-content-center  fs-2 mb-3">
-                <img src="img/image 6.png" alt="" width="100" height="145">
+                <img src="img/image 6.jpeg" alt="" width="150" height="185">
               </div>
 
               <div class="card-body">
@@ -319,9 +324,9 @@ $result2 = mysqli_query($conn, $sql2);
           ผิวหน้าของตนเองได้อย่างถูกต้องและดียิ่งขึ้น อย่าลืมเลือกใช้ผลิตภัณฑ์ที่เหมาะสมกับสภาพผิวของตนเอง😊😊😊😊😊</p>
 
       </div>
-    </div>
+    </div> -->
 
-    <div class="container px-4 " id="featured-7 pt-5">
+    <!-- <div class="container px-4 " id="featured-7 pt-5">
       <br>
       <h2 class="pb-2 border-bottom text-center">Lipstick</h2>
     </div>
@@ -376,7 +381,7 @@ $result2 = mysqli_query($conn, $sql2);
         <p>159฿</p>
         <p>Read more ></p>
       </div>
-    </div>
+    </div> -->
 
 
     <div class="container px-4 pt-5 " id="featured-7 ">
