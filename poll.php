@@ -111,8 +111,8 @@ $result2 = mysqli_query($conn, $sql2);
                 <div class="radio-list">
                     <h3 class="text-center">สภาพผิวของคุณเป็นเเบบไหน</h3>
                     <br>
-                    <h5 class="radio-item"><input name="answer1" id="answer1_1" type="radio" value="เป็นผิวเเพ้ง่าย"><label for="answer1_1">ผิวเเพ้ง่าย ลักษณะของคนที่เป็นผิวเเพ้ง่าย ผิวหนังมีอาการแดง อาการระคายเคือง เป็นผื่น คัน</label></h5>
-                    <div class="radio-item"><input name="answer1" id="answer1_2" type="radio" value="เป็นผิวปกติ"><label for="answer1_2">ผิวปกติ</label></div>
+                    <h5 class="radio-item"><input name="answer1" id="answer1_1" type="radio" value="ผิวเเพ้ง่าย"><label for="answer1_1">ผิวเเพ้ง่าย ลักษณะของคนที่เป็นผิวเเพ้ง่าย ผิวหนังมีอาการแดง อาการระคายเคือง เป็นผื่น คัน</label></h5>
+                    <div class="radio-item"><input name="answer1" id="answer1_2" type="radio" value="ผิวปกติ"><label for="answer1_2">ผิวปกติ</label></div>
                     <div class="text-center">
                         <button type="button" class="btn btn-outline-primary next mt-5">Next</button>
                     </div>
