@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // ดำเนินการคำสั่ง
     if ($stmt->execute()) {
-        header("Location: analysis.php");
+        header("Location: analysis.php?q1=$a1&q2=$a2&q3=$a3&q4=$a4&q5=$a5");
     } else {
         echo "Error: " . htmlspecialchars($stmt->error);
     }
