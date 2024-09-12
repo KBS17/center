@@ -123,7 +123,7 @@ $result2 = mysqli_query($conn, $sql2);
     </div>
 
 
-    <div class="container px-4 " id="featured-7">
+    <!-- <div class="container px-4 " id="featured-7">
       <br>
       <h2 class="pb-2 border-bottom text-center">skin care</h2>
     </div>
@@ -181,11 +181,11 @@ $result2 = mysqli_query($conn, $sql2);
         </div>
         <h6 class="fs-6 text-body-emphasis text-center">The Ordinary Peeling Solution</h6>
         </a>
-      </div>
+      </div> -->
+<!-- 
+    </div> -->
 
-    </div>
-
-    <div class="album py-5 bg-body-tertiary">
+    <!-- <div class="album py-5 bg-body-tertiary">
       <div class="container">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -306,7 +306,7 @@ $result2 = mysqli_query($conn, $sql2);
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class=" container-fluid px-5 row flex-lg-row align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
         <img src="img/bg55.png" alt="" width="700" height="500">
@@ -321,7 +321,7 @@ $result2 = mysqli_query($conn, $sql2);
       </div>
     </div>
 
-    <div class="container px-4 " id="featured-7 pt-5">
+    <!-- <div class="container px-4 " id="featured-7 pt-5">
       <br>
       <h2 class="pb-2 border-bottom text-center">Lipstick</h2>
     </div>
@@ -376,7 +376,7 @@ $result2 = mysqli_query($conn, $sql2);
         <p>159฿</p>
         <p>Read more ></p>
       </div>
-    </div>
+    </div> -->
 
 
     <div class="container px-4 pt-5 " id="featured-7 ">
@@ -386,7 +386,7 @@ $result2 = mysqli_query($conn, $sql2);
 
     <div class=" container-fluid px-5 row flex-lg-row align-items-center g-5 py-5 pt-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="img/ผิว1.png" alt="" width="60" height="70">
+        <img src="img/Ellipse1.png" alt="" width="90" height="70">
       </div>
       <div class="col-lg-6">
         <p class="lead font-cuba">การดูแลผิวแห้ง :
@@ -400,7 +400,7 @@ $result2 = mysqli_query($conn, $sql2);
 
     <div class=" container-fluid px-5 row flex-lg-row align-items-center g-5 py-5 pt-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="img/ผิว2.png" alt="" width="60" height="70">
+        <img src="img/Ellipse2.png" alt="" width="90" height="70">
       </div>
       <div class="col-lg-6">
         <p class="lead font-cuba">การดูแลผิวธรรมดา : สามารถใช้ผลิตภัณฑ์มอยส์เจอไรเซอร์ได้ทุกรูปแบบตามสภาพอากาศแต่ละฤดูได้สามารถเพิ่มการดูแลผิวหน้าอย่างสม่ำเสมอได้โดยการใช้มาส์ก
@@ -414,7 +414,7 @@ $result2 = mysqli_query($conn, $sql2);
 
     <div class=" container-fluid px-5 row flex-lg-row align-items-center g-5 py-5 pt-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="img/ผิว3.png" alt="" width="60" height="70">
+        <img src="img/Ellipse3.png" alt="" width="90" height="70">
       </div>
       <div class="col-lg-6">
         <p class="lead font-cuba">การดูแลผิวผสม :
@@ -430,7 +430,7 @@ $result2 = mysqli_query($conn, $sql2);
 
     <div class=" container-fluid px-5 row flex-lg-row align-items-center g-5 py-5 pt-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="img/ผิว4.png" alt="" width="60" height="70">
+        <img src="img/Ellipse4.png" alt="" width="90" height="70">
       </div>
       <div class="col-lg-6">
         <p class="lead font-cuba">การดูแลผิวมัน :
@@ -445,7 +445,7 @@ $result2 = mysqli_query($conn, $sql2);
 
     <div class=" container-fluid px-5 row flex-lg-row-reverse align-items-center g-5 py-5 pt-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="img/p1.png" alt="" width="400" height="500">
+        <img src="img/p1.png" alt="" width="500" height="500">
       </div>
       <div class="col-lg-6">
         <h1 class="display-7 fw-bold text-body-emphasis lh-1 mb-3">ผิวแพ้ง่าย มีอาการระคายเคือง แห้งกร้าน
@@ -462,7 +462,7 @@ $result2 = mysqli_query($conn, $sql2);
 
       <div class=" container-fluid px-5 row flex-lg-row align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
-          <img src="img/p2.png" alt="" width="400" height="500">
+          <img src="img/p2.png" alt="" width="500" height="500">
         </div>
         <div class="col-lg-6">
           <h1 class="display-5 fw-normal text-body-emphasis lh-1 mb-3 font-cuba ">ผิวธรรมดา จะชุ่มชื้นอยู่ตลอดเวลานุ่มเด้ง
@@ -484,11 +484,6 @@ $result2 = mysqli_query($conn, $sql2);
 
 
 
-      <p>ช่องทางการติดต่อ
-        tel: 122333333333_
-      </p>
-
-          <!-- Footer Section -->
     <footer class="container-fluid bg-light mt-5 py-3 text-center">
         <p class="mb-0">All rights reserved @CSUBooK Shop. 2024</p>
     </footer>

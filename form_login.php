@@ -72,12 +72,12 @@
           <div class="d-grid mb-3">
             <button type="submit" class="btn btn-outline-primary">Login</button>
           </div>
-          <div class="text-center mb-3">
+          <!-- <div class="text-center mb-3">
             <span>or</span>
-          </div>
-          <div class="d-grid">
+          </div> -->
+          <!-- <div class="d-grid">
             <button type="button" class="btn btn-outline-success" onclick="lineLogin()">Login with LINE</button>
-          </div>
+          </div> -->
         </form>
       </div>
     </div>
