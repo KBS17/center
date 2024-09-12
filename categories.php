@@ -5,9 +5,9 @@ session_start();
 $logStatus = $_SESSION['logStatus'] ?? 0;
 $username = $_SESSION['username'] ?? '';
 $userId = $_SESSION['userId'] ?? null;
-$profile = isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : null;
+$profile = $_SESSION['profile_picture'] ?? null;
 
-$id = intval($_GET['id']);
+$id = intval($_GET['id']); // Ensure that the ID is an integer to prevent SQL Injection
 
 // Default for checkbox selections
 $selectedSkinTypes = [];
@@ -19,18 +19,81 @@ $offset = ($page - 1) * $limit; // Calculate the offset for the query
 
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['skinTypes'])) {
-    $selectedSkinTypes = $_POST['skinTypes'];
+    $selectedSkinTypes = array_filter($_POST['skinTypes'], 'is_string'); // Ensure all selected skin types are strings
 
-    // Create placeholders for SQL query
-    $placeholders = implode(',', array_fill(0, count($selectedSkinTypes), '?'));
+    if (!empty($selectedSkinTypes)) {
+        // Create placeholders for SQL query
+        $placeholders = implode(',', array_fill(0, count($selectedSkinTypes), '?'));
 
-    // Fetch the total number of products based on selected skin types
-    $totalQuery = "SELECT COUNT(*) as total FROM products 
-                    INNER JOIN analysis ON analysis.problems_id = products.id 
-                    INNER JOIN problems ON problems.id = analysis.problems_id 
-                    WHERE categories_id = $id AND problems.problems IN ($placeholders)";
+        // Fetch the total number of products based on selected skin types
+        $totalQuery = "SELECT COUNT(DISTINCT products.id) as total 
+                        FROM products 
+                        INNER JOIN analysis ON analysis.product_id = products.id 
+                        INNER JOIN problems ON problems.id = analysis.problems_id 
+                        WHERE categories_id = ? AND problems.problems IN ($placeholders)";
+        $stmt = $conn->prepare($totalQuery);
+
+        // Create an array for bind_param arguments
+        $bindParams = array_merge([$id], $selectedSkinTypes);
+
+        // Define the types for bind_param
+        $types = 'i' . str_repeat('s', count($selectedSkinTypes)); // 'i' for integer (category id), 's' for strings (skin types)
+
+        // Convert all bind parameters to references
+        $bindParamsRef = [];
+        array_walk($bindParams, function(&$value) use (&$bindParamsRef) {
+            $bindParamsRef[] = &$value;
+        });
+
+        // Use call_user_func_array to bind parameters dynamically
+        call_user_func_array([$stmt, 'bind_param'], array_merge([$types], $bindParamsRef));
+
+        $stmt->execute();
+        $totalResult = $stmt->get_result();
+        $totalRow = $totalResult->fetch_assoc();
+        $totalProducts = $totalRow['total'];
+        $stmt->close();
+
+        // Calculate total pages
+        $totalPages = ceil($totalProducts / $limit);
+
+        $sql = "SELECT DISTINCT products.*, problems.problems 
+        FROM products 
+        INNER JOIN analysis ON analysis.product_id = products.id 
+        INNER JOIN problems ON problems.id = analysis.problems_id 
+        WHERE categories_id = ? AND problems.problems IN ($placeholders)
+        LIMIT ? OFFSET ?";
+        $stmt = $conn->prepare($sql);
+
+        // Add limit and offset to bindParams
+        $bindParams = array_merge([$id], $selectedSkinTypes, [$limit, $offset]);
+
+        // Define the types for bind_param
+        $types = 'i' . str_repeat('s', count($selectedSkinTypes)) . 'ii';
+
+        // Convert all bind parameters to references
+        $bindParamsRef = [];
+        array_walk($bindParams, function(&$value) use (&$bindParamsRef) {
+            $bindParamsRef[] = &$value;
+        });
+
+        // Use call_user_func_array to bind parameters dynamically
+        call_user_func_array([$stmt, 'bind_param'], array_merge([$types], $bindParamsRef));
+
+        $stmt->execute();
+        $productResult = $stmt->get_result();
+        $stmt->close();
+    } else {
+        // Handle the case where no skin types are selected
+        $productResult = [];
+        $totalProducts = 0;
+        $totalPages = 1;
+    }
+} else {
+    // Fetch total number of products without filters
+    $totalQuery = "SELECT COUNT(*) as total FROM products WHERE categories_id = ?";
     $stmt = $conn->prepare($totalQuery);
-    $stmt->bind_param(str_repeat('s', count($selectedSkinTypes)), ...$selectedSkinTypes);
+    $stmt->bind_param('i', $id); // Bind category ID as an integer
     $stmt->execute();
     $totalResult = $stmt->get_result();
     $totalRow = $totalResult->fetch_assoc();
@@ -40,31 +103,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['skinTypes'])) {
     // Calculate total pages
     $totalPages = ceil($totalProducts / $limit);
 
-    // Query for products with selected skin types
-    $sql = "SELECT products.*, problems.problems 
-            FROM products 
-            INNER JOIN analysis ON analysis.problems_id = products.id 
-            INNER JOIN problems ON problems.id = analysis.problems_id 
-            WHERE categories_id = $id AND problems.problems IN ($placeholders)
-            LIMIT $limit OFFSET $offset";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param(str_repeat('s', count($selectedSkinTypes)), ...$selectedSkinTypes);
+    // Query for products without filters
+    $productQuery = "SELECT * FROM products WHERE categories_id = ? LIMIT ? OFFSET ?";
+    $stmt = $conn->prepare($productQuery);
+    $stmt->bind_param('iii', $id, $limit, $offset); // Bind category ID, limit, and offset
     $stmt->execute();
     $productResult = $stmt->get_result();
     $stmt->close();
-} else {
-    // Fetch total number of products without filters
-    $totalQuery = "SELECT COUNT(*) as total FROM products WHERE categories_id = $id";
-    $totalResult = $conn->query($totalQuery);
-    $totalRow = $totalResult->fetch_assoc();
-    $totalProducts = $totalRow['total'];
-
-    // Calculate total pages
-    $totalPages = ceil($totalProducts / $limit);
-
-    // Query for products without filters
-    $productQuery = "SELECT * FROM products WHERE categories_id = $id LIMIT $limit OFFSET $offset";
-    $productResult = $conn->query($productQuery);
 }
 
 // Fetch categories and brands for the navbar
@@ -82,6 +127,7 @@ foreach ($queries as $key => $query) {
 
 $conn->close();
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -163,7 +209,7 @@ $conn->close();
                 <hr>
                 <form method="POST" action="">
                     <?php
-                    $skinTypes = ['ผิวธรรมดา', 'ผิวผิดปกติ', 'ผิวแห้ง', 'ผิวมัน', 'ผิวผสม', 'ผิวแพ้ง่าย'];
+                    $skinTypes = ['ผิวธรรมดา', 'ผิวปกติ', 'ผิวแห้ง', 'ผิวมัน', 'ผิวผสม', 'ผิวเเพ้ง่าย'];
                     foreach ($skinTypes as $index => $type): ?>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="skinTypes[]" value="<?= htmlspecialchars($type) ?>" id="flexCheck<?= $index ?>"
@@ -204,17 +250,17 @@ $conn->close();
                 <nav aria-label="Page navigation" class="mt-2">
                     <ul class="pagination justify-content-center mt-4">
                         <li class="page-item <?= ($page <= 1) ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?page=<?= $page - 1 ?>" aria-label="Previous">
+                            <a class="page-link" href="categories.php?id=<?= $id ?>&page=<?= $page - 1 ?>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                             <li class="page-item <?= ($i == $page) ? 'active' : '' ?>">
-                                <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
+                                <a class="page-link" href="categories.php?id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a>
                             </li>
                         <?php endfor; ?>
                         <li class="page-item <?= ($page >= $totalPages) ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?page=<?= $page + 1 ?>" aria-label="Next">
+                            <a class="page-link" href="categories.php?id=<?= $id ?>&page=<?= $page + 1 ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

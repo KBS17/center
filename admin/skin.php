@@ -41,9 +41,9 @@ $result = $stmt->get_result();
             <li class="nav-item">
                 <a class="nav-link" href="products.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลเครื่องสำอาง</span></a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="notify.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลการข่าวสาร</span></a>
-            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="notify.php"><i class="bi bi-archive-fill"></i><span>ข้อมูลการแนะนำเครื่องสำอาง</span></a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="edit_m.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลสมาชิก</span></a>
             </li>

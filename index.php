@@ -191,7 +191,7 @@ $result2 = mysqli_query($conn, $sql2);
 
 
 
-
+<!-- 
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
 
@@ -313,7 +313,7 @@ $result2 = mysqli_query($conn, $sql2);
           </div>
         </div>
       </div>
-    </div> -->
+    </div>  -->
     <div class=" container-fluid px-5 row flex-lg-row align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
         <img src="img/bg55.png" alt="" width="700" height="500">
@@ -326,7 +326,7 @@ $result2 = mysqli_query($conn, $sql2);
           ผิวหน้าของตนเองได้อย่างถูกต้องและดียิ่งขึ้น อย่าลืมเลือกใช้ผลิตภัณฑ์ที่เหมาะสมกับสภาพผิวของตนเอง😊😊😊😊😊</p>
 
       </div>
-    </div> -->
+    </div>
 
     <!-- <div class="container px-4 " id="featured-7 pt-5">
       <br>
@@ -501,6 +501,81 @@ $result2 = mysqli_query($conn, $sql2);
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+
+
+
+
+  <div class="section-footer">
+        <footer>
+            <div class="footer-container">
+                <div class="content-width2 text-center text-md-left">
+                    <div class="row">
+                    	<div class="col-12 col-xl-3 mb-4">
+                        <a class="navbar-brand" href="/center">
+                            <img src="img/logo.png" width="200" alt="">
+                        </a>
+                    	</div>
+                    	<div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-4 d-none d-md-block">
+                    		<h3>Categories</h3>
+                    		<ul class="footer-cate-list">
+                    		  <li><a href="conmetic.php" title="conmetic">conmetic</a></li>
+                          <li><a href="skincare.php" title="skincare">skincare</a></li>
+                          <li><a href="compare.php" title="compare">compare</a></li>
+                          <li><a href="poll.php" title="poll">poll</a></li>
+                          <li><a href="form_register.php" title="register">register</a></li>
+                        </ul>
+                    	</div>
+                    	<!-- <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-4">
+                    		<h3>Find us on facebook</h3>
+                    		<div class="footer-cate-list">
+                    			<div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/profile.php?id=100018458708770" data-tabs="timeline" data-width="" data-height="210" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" fb-xfbml-state="rendered" 
+                            fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=100018458708770&amp;container_width=263&amp;height=210&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmakewebeasy%2F&amp;locale=th_TH&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;tabs=timeline&amp;width="><span style="vertical-align: bottom; width: 263px; height: 210px;"><iframe name="f6c68769a5b47d351" width="1000px" height="210px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v6.0/plugins/page.php?adapt_container_width=true&amp;app_id=1058904764297246&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df035fb1ee9ba25970%26domain%3Dwww.makewebeasy.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.makewebeasy.com%252Ff91ae3535967f0034%26relation%3Dparent.parent&amp;container_width=263&amp;height=210&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmakewebeasy%2F&amp;locale=th_TH&amp;sdk=joey&amp;show_facepile=true&amp;small_header=false&amp;tabs=timeline&amp;width=" style="border: none; visibility: visible; width: 263px; height: 210px;" class=""></iframe></span></div></div>
+                    	</div> -->
+                    	<div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-0 mb-md-4">
+                    		<h3>Social Network</h3>
+                    		<div class="social-bar">
+                            <a href="https://www.facebook.com/profile.php?id=100018458708770" target="_blank"><img src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/facebook.png" data-src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/facebook.png" class=" ls-is-cached lazyloaded"><noscript><img src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/facebook.png" data-eio="l" /></noscript></a>
+                            <a href="https://www.instagram.com/swallabell/?hl=en" target="_blank"><img src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/instagram.png" data-src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/instagram.png" class=" ls-is-cached lazyloaded"><noscript><img src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/instagram.png" data-eio="l" /></noscript></a>
+                            <a href="https://line.me/ti/p/Y2GK4t01QQ" target="_blank"><img src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/line.png" data-src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/line.png" class=" ls-is-cached lazyloaded"><noscript><img src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/line.png" data-eio="l" /></noscript></a>
+                            <a href="https://www.youtube.com/channel/UC0MpxrqwJYAFCtCHalDoLHw" target="_blank"><img src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/youtube.png" data-src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/youtube.png" class=" ls-is-cached lazyloaded"><noscript><img src="https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/09/youtube.png" data-eio="l" /></noscript></a>
+                        </div>
+                    	</div>
+                      <div class="col-12 col-xl-3 mb-4">
+                        <a class="navbar-brand" href="/center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                          <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.5 3.5 0 0 0 8 11.5a3.5 3.5 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5"/>
+                        </svg>
+                        </a>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
