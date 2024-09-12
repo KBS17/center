@@ -5,7 +5,7 @@ session_start();
 $logStatus = $_SESSION['logStatus'] ?? 0;
 $username = $_SESSION['username'] ?? '';
 $userId = $_SESSION['userId'] ?? null;
-$profile = isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : null;
+$profile = $_SESSION['profile_picture'] ?? null;
 // Default for checkbox selections
 $selectedSkinTypes = [];
 
@@ -16,39 +16,57 @@ $offset = ($page - 1) * $limit; // Calculate the offset for the query
 
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['skinTypes'])) {
-    $selectedSkinTypes = $_POST['skinTypes'];
+    $selectedSkinTypes = array_filter($_POST['skinTypes'], 'is_string');
 
-    // Create placeholders for SQL query
-    $placeholders = implode(',', array_fill(0, count($selectedSkinTypes), '?'));
+    if (!empty($selectedSkinTypes)) {
+        // Create placeholders for SQL query
+        $placeholders = implode(',', array_fill(0, count($selectedSkinTypes), '?'));
 
-    // Fetch the total number of products based on selected skin types
-    $totalQuery = "SELECT COUNT(*) as total FROM products 
-                    INNER JOIN analysis ON analysis.problems_id = products.id 
-                    INNER JOIN problems ON problems.id = analysis.problems_id 
-                    WHERE products.type_id = 1 AND problems.problems IN ($placeholders)";
-    $stmt = $conn->prepare($totalQuery);
-    $stmt->bind_param(str_repeat('s', count($selectedSkinTypes)), ...$selectedSkinTypes);
-    $stmt->execute();
-    $totalResult = $stmt->get_result();
-    $totalRow = $totalResult->fetch_assoc();
-    $totalProducts = $totalRow['total'];
-    $stmt->close();
+        // Fetch the total number of products based on selected skin types
+        $totalQuery = "SELECT COUNT(DISTINCT products.id) as total 
+                        FROM products 
+                        INNER JOIN analysis ON analysis.product_id = products.id 
+                        INNER JOIN problems ON problems.id = analysis.problems_id 
+                        WHERE products.type_id = 1 AND problems.problems IN ($placeholders)";
+        $stmt = $conn->prepare($totalQuery);
+        $stmt->bind_param(str_repeat('s', count($selectedSkinTypes)), ...$selectedSkinTypes);
+        $stmt->execute();
+        $totalResult = $stmt->get_result();
+        $totalRow = $totalResult->fetch_assoc();
+        $totalProducts = $totalRow['total'];
+        $stmt->close();
 
-    // Calculate total pages
-    $totalPages = ceil($totalProducts / $limit);
+        // Calculate total pages
+        $totalPages = ceil($totalProducts / $limit);
 
-    // Query for products with selected skin types
-    $sql = "SELECT products.*, problems.problems 
-            FROM products 
-            INNER JOIN analysis ON analysis.problems_id = products.id 
-            INNER JOIN problems ON problems.id = analysis.problems_id 
-            WHERE products.type_id = 1 AND problems.problems IN ($placeholders)
-            LIMIT $limit OFFSET $offset";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param(str_repeat('s', count($selectedSkinTypes)), ...$selectedSkinTypes);
-    $stmt->execute();
-    $productResult = $stmt->get_result();
-    $stmt->close();
+        // Query for products with selected skin types
+        $sql = "SELECT DISTINCT products.*, problems.problems 
+FROM products 
+INNER JOIN analysis ON analysis.product_id = products.id 
+INNER JOIN problems ON problems.id = analysis.problems_id 
+WHERE products.type_id = 1 AND problems.problems IN ($placeholders)
+LIMIT ? OFFSET ?";
+
+        $stmt = $conn->prepare($sql);
+
+        // Create an array for bind_param arguments
+        $bindParams = array_merge($selectedSkinTypes, [$limit, $offset]);
+
+        // Define the types for bind_param
+        $types = str_repeat('s', count($selectedSkinTypes)) . 'ii';
+
+        // Use call_user_func_array to bind parameters dynamically
+        $stmt->bind_param($types, ...$bindParams);
+
+        $stmt->execute();
+        $productResult = $stmt->get_result();
+        $stmt->close();
+    } else {
+        // Handle the case where no skin types are selected
+        $productResult = [];
+        $totalProducts = 0;
+        $totalPages = 1;
+    }
 } else {
     // Fetch total number of products without filters
     $totalQuery = "SELECT COUNT(*) as total FROM products WHERE type_id = 1";
@@ -60,8 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['skinTypes'])) {
     $totalPages = ceil($totalProducts / $limit);
 
     // Query for products without filters
-    $productQuery = "SELECT * FROM products WHERE type_id = 1 LIMIT $limit OFFSET $offset";
-    $productResult = $conn->query($productQuery);
+    $productQuery = "SELECT * FROM products WHERE type_id = 1 LIMIT ? OFFSET ?";
+    $stmt = $conn->prepare($productQuery);
+    $stmt->bind_param('ii', $limit, $offset);
+    $stmt->execute();
+    $productResult = $stmt->get_result();
+    $stmt->close();
 }
 
 // Fetch categories and brands for the navbar
@@ -79,6 +101,7 @@ foreach ($queries as $key => $query) {
 
 $conn->close();
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -160,7 +183,7 @@ $conn->close();
                 <hr>
                 <form method="POST" action="">
                     <?php
-                    $skinTypes = ['ผิวธรรมดา', 'ผิวผิดปกติ', 'ผิวแห้ง', 'ผิวมัน', 'ผิวผสม', 'ผิวแพ้ง่าย'];
+                    $skinTypes = ['ผิวธรรมดา', 'ผิวปกติ', 'ผิวแห้ง', 'ผิวมัน', 'ผิวผสม', 'ผิวเเพ้ง่าย'];
                     foreach ($skinTypes as $index => $type): ?>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="skinTypes[]" value="<?= htmlspecialchars($type) ?>" id="flexCheck<?= $index ?>"

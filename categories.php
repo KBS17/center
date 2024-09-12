@@ -204,17 +204,17 @@ $conn->close();
                 <nav aria-label="Page navigation" class="mt-2">
                     <ul class="pagination justify-content-center mt-4">
                         <li class="page-item <?= ($page <= 1) ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?page=<?= $page - 1 ?>" aria-label="Previous">
+                            <a class="page-link" href="categories.php?id=<?= $id ?>&page=<?= $page - 1 ?>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                             <li class="page-item <?= ($i == $page) ? 'active' : '' ?>">
-                                <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
+                                <a class="page-link" href="categories.php?id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a>
                             </li>
                         <?php endfor; ?>
                         <li class="page-item <?= ($page >= $totalPages) ? 'disabled' : '' ?>">
-                            <a class="page-link" href="?page=<?= $page + 1 ?>" aria-label="Next">
+                            <a class="page-link" href="categories.php?id=<?= $id ?>&page=<?= $page + 1 ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
