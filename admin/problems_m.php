@@ -2,8 +2,8 @@
 session_start();
 include "../config/config.php";
 
-// Fetch problems data
-$sql = "SELECT * FROM problems";
+// Fetch members data
+$sql = "SELECT * FROM problems ";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -49,13 +49,13 @@ $result = $stmt->get_result();
                 <a class="nav-link" href="skin.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลเครื่องสำอางสำหรับผิวหน้า</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="problems_m.php"><i class="bi bi-archive-fill"></i><span>ข้อมูลการแนะนำเครื่องสำอาง</span></a>
+                <a class="nav-link" href="problems_m.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลคำแนะนำผิวหน้า</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="review_mes.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลการรีวิว</span></a>
             </li>
-            <hr class="sidebar-divider d-none d-md-block">
-            <!-- <li class="nav-item">
+            <!-- <hr class="sidebar-divider d-none d-md-block">
+            <li class="nav-item">
                 <a class="nav-link" href="#"><i class="bi bi-box-arrow-right"></i><span>logout </span></a>
             </li> -->
         </ul>
@@ -83,8 +83,8 @@ $result = $stmt->get_result();
                 <div class="container-fluid">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">จัดการข้อมูลผู้ใช้</h6>
+                        <div class="d-flex justify-content-between  align-items-center  card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">จัดการข้อมูลคำแนะนำผิวหน้า</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -92,35 +92,28 @@ $result = $stmt->get_result();
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>Skin</th>
-                                            <th>Product</th>
+                                            <th>problems</th>
+                                            <th>Description</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php while ($row = $result->fetch_assoc()) {
-                                            $problemId = $row['id'];
-                                            // Prepare and execute the count query
-                                            $sql2 = "SELECT COUNT(*) as total FROM analysis WHERE problems_id = ?";
-                                            $stmt2 = $conn->prepare($sql2);
-                                            $stmt2->bind_param("i", $problemId);
-                                            $stmt2->execute();
-                                            $result2 = $stmt2->get_result();
-                                            $countRow = $result2->fetch_assoc();
-                                            $total = $countRow['total'];
-                                        ?>
+                                        <?php while ($row = $result->fetch_assoc()) { ?>
                                             <tr>
                                                 <td><?= htmlspecialchars($row['id']) ?></td>
                                                 <td><?= htmlspecialchars($row['problems']) ?></td>
-                                                <td><?= htmlspecialchars($total) ?></td>
+                                                <td><?= htmlspecialchars($row['description']) ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary" href="skin_pro.php?problem_id=<?= htmlspecialchars($row['id']) ?>">
-                                                        แสดงสินค้า
-                                                    </a>
-
+                                                <div class="d-flex">
+                                                    <button class="btn btn-warning mx-2" onclick="window.location.href='problems_edit.php?id=<?= htmlspecialchars($row['id']) ?>'">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                    </button>
+                                                </div>
                                                 </td>
                                             </tr>
                                         <?php } ?>
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -139,6 +132,7 @@ $result = $stmt->get_result();
     <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.1.5/js/dataTables.bootstrap5.js"></script>
 
+
     <script>
         $(document).ready(function() {
             $('#dataTable').DataTable({
@@ -147,6 +141,17 @@ $result = $stmt->get_result();
                 "searching": true
             });
         });
+    </script>
+
+
+
+
+    <script>
+        function deleteProduct(proId) {
+            if (confirm("Are you sure you want to delete this product?")) {
+                window.location.href = 'pro_delete.php?id=' + proId;
+            }
+        }
     </script>
 
 </body>

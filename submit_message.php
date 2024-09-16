@@ -1,9 +1,31 @@
 <?php
-session_start();
-include "../config/config.php";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Fetch problems data
-$sql = "SELECT * FROM problems";
+$servername = "45.136.253.223";
+$username = "adminroot";
+$password = "Project@040824";
+$dbname = "center";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $message = mysqli_real_escape_string($conn, $_POST['message']);
+
+    if (!empty($message)) {
+        $sql = "INSERT INTO message (message) VALUES ('$message')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "<div class='alert alert-success' role='alert'>บันทึกข้อความของท่านเรียบร้อยแล้ว</div>";
+        } else {
+            echo "<div class='alert alert-danger' role='alert'>Error: " . mysqli_error($conn) . "</div>";
+        }
+    } else {
+        echo "<div class='alert alert-warning' role='alert'>ไม่ได้รับข้อความจากฟอร์ม</div>";
+    }
+}
+
+$sql = "SELECT * FROM message";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -15,52 +37,43 @@ $result = $stmt->get_result();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin</title>
+    <title>Adminศูนย์กลางเครื่องสำอาง</title>
     <link href="style.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="css/admin.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.bootstrap5.css" />
+
+
+    <style>
+        .message-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .message-table th, .message-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .message-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .message-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion px-2" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3"> Admin </div>
-            </a>
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-archive-fill"></i><span>Dashboard</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="products.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลเครื่องสำอาง</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="edit_m.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลสมาชิก</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="skin.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลเครื่องสำอางสำหรับผิวหน้า</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="problems_m.php"><i class="bi bi-archive-fill"></i><span>ข้อมูลการแนะนำเครื่องสำอาง</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="review_mes.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลการรีวิว</span></a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-box-arrow-right"></i><span>logout </span></a>
-            </li> -->
-        </ul>
-        <!-- End of Sidebar -->
-
+        
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
@@ -87,38 +100,32 @@ $result = $stmt->get_result();
                             <h6 class="m-0 font-weight-bold text-primary">จัดการข้อมูลผู้ใช้</h6>
                         </div>
                         <div class="card-body">
+                            <!-- Message Form -->
+                            <form method="post" action="">
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="index.php" class="btn btn-dark">Back</a>
+                            </form>
+
+                            <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered dataTable table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>Skin</th>
-                                            <th>Product</th>
-                                            <th>Action</th>
+                                            <th>Massage</th>
+                                            <th>created_at</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php while ($row = $result->fetch_assoc()) {
-                                            $problemId = $row['id'];
-                                            // Prepare and execute the count query
-                                            $sql2 = "SELECT COUNT(*) as total FROM analysis WHERE problems_id = ?";
-                                            $stmt2 = $conn->prepare($sql2);
-                                            $stmt2->bind_param("i", $problemId);
-                                            $stmt2->execute();
-                                            $result2 = $stmt2->get_result();
-                                            $countRow = $result2->fetch_assoc();
-                                            $total = $countRow['total'];
-                                        ?>
+                                        <?php while ($row = $result->fetch_assoc()) { ?>
                                             <tr>
                                                 <td><?= htmlspecialchars($row['id']) ?></td>
-                                                <td><?= htmlspecialchars($row['problems']) ?></td>
-                                                <td><?= htmlspecialchars($total) ?></td>
-                                                <td>
-                                                    <a class="btn btn-primary" href="skin_pro.php?problem_id=<?= htmlspecialchars($row['id']) ?>">
-                                                        แสดงสินค้า
-                                                    </a>
-
-                                                </td>
+                                                <td><?= htmlspecialchars($row['message']) ?></td>
+                                                <td><?= htmlspecialchars($row['created_at']) ?></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
@@ -132,6 +139,7 @@ $result = $stmt->get_result();
             </div>
             <!-- End of Content Wrapper -->
         </div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>

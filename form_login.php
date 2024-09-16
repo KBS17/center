@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,16 +73,17 @@
           <div class="d-grid mb-3">
             <button type="submit" class="btn btn-outline-primary">Login</button>
           </div>
-          <!-- <div class="text-center mb-3">
+          <div class="text-center mb-3">
             <span>or</span>
-          </div> -->
-          <!-- <div class="d-grid">
-            <button type="button" class="btn btn-outline-success" onclick="lineLogin()">Login with LINE</button>
-          </div> -->
+          </div>
+          <div class="d-grid">
+            <button type="button" class="btn btn-outline-success" onclick="line_login()">Login with LINE</button>
+          </div>
         </form>
       </div>
     </div>
   </div>
+  
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -89,10 +91,12 @@
   <script>
 
 
-    function lineLogin() {
-      // Implement LINE login logic here
-      alert('LINE login is not implemented yet.');
-    }
+    // function lineLogin() {
+    //   // Implement LINE login logic here
+    //   alert('LINE login is not implemented yet.');
+    // }
+
+
   </script>
 </body>
 

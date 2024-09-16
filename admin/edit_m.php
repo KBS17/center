@@ -35,25 +35,29 @@ $result = $stmt->get_result();
                 <div class="sidebar-brand-text mx-3"> Admin </div>
             </a>
             <hr class="sidebar-divider my-0">
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="#"><i class="bi bi-archive-fill"></i><span>Dashboard</span></a>
-            </li> -->
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="products.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลเครื่องสำอาง</span></a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="notify.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลการข่าวสาร</span></a>
-            </li> -->
+
             <li class="nav-item">
                 <a class="nav-link" href="edit_m.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลสมาชิก</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="skin.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลเครื่องสำอางสำหรับผิวหน้า</span></a>
             </li>
-            <hr class="sidebar-divider d-none d-md-block">
+            <li class="nav-item">
+                <a class="nav-link" href="problems_m.php"><i class="bi bi-archive-fill"></i><span>ข้อมูลการแนะนำเครื่องสำอาง</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="review_mes.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลการรีวิว</span></a>
+            </li>
+            <!-- <hr class="sidebar-divider d-none d-md-block">
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="bi bi-box-arrow-right"></i><span>logout </span></a>
-            </li>
+            </li> -->
         </ul>
         <!-- End of Sidebar -->
 

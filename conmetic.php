@@ -152,10 +152,16 @@ $conn->close();
                             <li class="nav-item">
                                 <a class="nav-link " href="poll.php">Poll</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="submit_message.php">Reviews</a>
+                            </li>
                         <?php else: ?>
 
                         <?php endif; ?>
                     </ul>
+
+
+
                     <div class="d-flex">
                         <?php if ($logStatus == 1): ?>
                             <div class="d-flex align-items-center">
@@ -219,6 +225,12 @@ $conn->close();
                         </div>
                     <?php endif; ?>
                 </div>
+
+
+
+
+
+                
 
                 <!-- Pagination Links -->
                 <nav aria-label="Page navigation" class="mt-2">

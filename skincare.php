@@ -147,6 +147,9 @@ $conn->close();
                             <li class="nav-item">
                                 <a class="nav-link " href="poll.php">Poll</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="submit_message.php">Reviews</a>
+                            </li>
                         <?php else: ?>
                         <?php endif; ?>
                     </ul>
