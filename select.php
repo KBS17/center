@@ -1,5 +1,5 @@
 <? php
-require(' .. /con1.php');
+require('config/config.php');
 
 $query = 'SELECT COUNT(*) FROM notify WHERE seen = 0';
 

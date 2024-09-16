@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <style>
+    
     body {
     background-color: #ccc;
     }
@@ -36,14 +37,14 @@
 
 <body>
     <div class="con">
-        <form method="post" id="frm">
+        <!-- <form method="post" id="frm">
             <input type="text" name="comm" id="comm" placeholder="Comment Here">
             <input type="submit" value="submit" id="submit">
-        </form>
-        <!-- <form method="post" id="frm">
-            <input type="text" id="massage" placeholder="Comment Here">
-            <input type="submit" value="submit" id="submit">
-        </form>  -->
+        </form> -->
+        <form method="post" id="frm" action="insert.php">
+            <input type="text" id="notify"  name="notify" placeholder="Comment Here">
+            <button type="submit">Submit</button>
+        </form> 
     </div>
 
     <script>

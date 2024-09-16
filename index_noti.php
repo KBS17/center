@@ -159,8 +159,8 @@
                 if (xhr.status == 200) {
                     let data = JSON.parse(xhr.responseText);
 
-                    data.forEach(message => {
-                        let li = <li>${message.msg}</li>;
+                    data.forEach(notify => {
+                        let li = <li>${notify.$noti}</li>;
 
                         notify_container.innerHTML += li;
 

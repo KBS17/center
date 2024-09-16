@@ -1,16 +1,30 @@
 <?php
-require('con1.php');
+session_start();
+include "config/config.php"; 
 
-if (isset($_POST['msg'])){
-    $query = 'INSERT INTO notify (notify) VALUES (:msg)';
+if (isset($_POST['notify'])) {
+    $noti = $_POST['notify'];
 
-    $stm = $pdo->prepare($query);
+  
+    $query = "INSERT INTO notify (notify) VALUES (?)";
 
-    $stm->bindValue(':msg', $_POST['msg']);
 
-    if ($stm->execute()){
-        echo json_encode('added');
+    if ($stmt = $conn->prepare($query)) {
+
+        $stmt->bind_param('s', $noti);
+
+        if ($stmt->execute()) {
+            header("Location: index_noti.php");
+        } else {
+            echo json_encode('error');
+        }
+
+
+        $stmt->close();
+    } else {
+        echo json_encode('error');
     }
 
+    $conn->close();
 }
 ?>
