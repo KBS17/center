@@ -11,32 +11,32 @@ if ($logStatus == 0) {
     header("Location: form_login.php");
 }
 
-// Query for categories
+
 $sql1 = "SELECT * FROM categories";
 $result1 = mysqli_query($conn, $sql1);
 
-// Query for brands
+
 $sql2 = "SELECT * FROM brands";
 $result2 = mysqli_query($conn, $sql2);
 
-// Query for products
+
 $sql3 = "SELECT * FROM products";
 $result3 = mysqli_query($conn, $sql3);
 
-// Fetch all products into an array
+
 $products = [];
 while ($row = $result3->fetch_assoc()) {
     $products[] = $row;
 }
 
-// Fetch product ids for comparison
+
 $id1 = isset($_GET['id1']) ? intval($_GET['id1']) : 0;
 $id2 = isset($_GET['id2']) ? intval($_GET['id2']) : 0;
 
 $productDetail1 = null;
 $productDetail2 = null;
 
-// Fetch first product
+//ดึงข้อมูลสินค้า โดยใช้ id1
 if ($id1 > 0) {
     $stmt1 = $conn->prepare("SELECT * FROM products WHERE id = ?");
     $stmt1->bind_param("i", $id1);
@@ -45,7 +45,7 @@ if ($id1 > 0) {
     $productDetail1 = $result1->fetch_assoc();
 }
 
-// Fetch second product
+
 if ($id2 > 0) {
     $stmt2 = $conn->prepare("SELECT * FROM products WHERE id = ?");
     $stmt2->bind_param("i", $id2);
@@ -61,80 +61,18 @@ if ($id2 > 0) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Compare | ศูนย์กลางเครื่องสำอาง</title>
+    <title>Compare</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
-<body>
-    <header class="px-5 d-flex align-items-center" style="background-color: #D9D9D9;">
-        <nav class="navbar navbar-expand-lg" style="width: 100%;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/center">
-                    <img src="img/logo.png" width="100" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="conmetic.php">Cosmetic</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="skincare.php">Skin care</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
-                            <ul class="dropdown-menu">
-                                <?php while ($categories = $result1->fetch_assoc()): ?>
-                                    <li><a class="dropdown-item" href="categories.php?id=<?= htmlspecialchars($categories['id']) ?>"><?= htmlspecialchars($categories['categories_name']) ?></a></li>
-                                <?php endwhile; ?>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brands</a>
-                            <ul class="dropdown-menu">
-                                <?php while ($brands = $result2->fetch_assoc()): ?>
-                                    <li><a class="dropdown-item" href="brands.php?id=<?= htmlspecialchars($brands['id']) ?>"><?= htmlspecialchars($brands['brand_name']) ?></a></li>
-                                <?php endwhile; ?>
-                            </ul>
-                        </li>
-                        <?php if ($logStatus == 1): ?>
-                            <li class="nav-item">
-                                <a class="nav-link " href="compare.php">Compare</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="poll.php">Poll</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="submit_message.php">Reviews</a>
-                            </li>
-                        <?php else: ?>
+<body> 
+    <?php
+ include("nav.php");
 
-                        <?php endif; ?>
-                    </ul>
+ ?>
 
-                    <?php if ($logStatus == 1): ?>
-                        <div class="d-flex align-items-center">
-                            <div class="text-center">
-                                <img src="uploads/user/<?= htmlspecialchars($profile) ?>" style="max-height:40px;" class="rounded-circle me-2 img-fluid">
-                            </div>
-                            <span class="me-3 fs-5 border-end border-1 border-secondary pe-3 ">@<?= htmlspecialchars($username) ?></span>
-                            <a href="logout.php" class="btn btn-outline-danger  " style="width: auto;"> <i class="bi bi-box-arrow-right"></i> Logout</a>
-                        </div>
-                    <?php else: ?>
-                        <div>
-                            <a href="form_login.php" class="btn btn-outline-success" style="width: auto;">Login</a>
-                            <a href="form_register.php" class="btn btn-primary" style="width: auto;">Register</a>
-                        </div>
-                    <?php endif; ?>
-
-                </div>
-            </div>
-        </nav>
-    </header>
 
     <div class="container">
         <div class="row mt-5">
@@ -198,8 +136,11 @@ if ($id2 > 0) {
         </div>
     </div>
 
+    
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzeytrw3tBTwtTfGxpyMIe7Cw9OrtxEWbEpP1WJHltgJ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-rbsA2VBKQQUU/ujLRBgnz3j5UQU6sdmU4aYi5y3pcrlm6GFa8dql4PMSvM5lcC2x" crossorigin="anonymous"></script>
 </body>
 
 </html>
+

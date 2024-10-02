@@ -135,75 +135,21 @@ $conn->close();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cosmetic | ศูนย์กลางเครื่องสำอาง</title>
+    <title>Cosmetic</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Navbar Section -->
-    <header class="px-5 bg-light">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/center">
-                    <img src="img/logo.png" width="100" alt="Logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" href="conmetic.php">Cosmetic</a></li>
-                        <li class="nav-item"><a class="nav-link" href="skincare.php">Skin care</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
-                            <ul class="dropdown-menu">
-                                <?php while ($category = $results['categories']->fetch_assoc()): ?>
-                                    <li><a class="dropdown-item" href="categories.php?id=<?= htmlspecialchars($category['id']) ?>"><?= htmlspecialchars($category['categories_name']) ?></a></li>
-                                <?php endwhile; ?>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Brands</a>
-                            <ul class="dropdown-menu">
-                                <?php while ($brand = $results['brands']->fetch_assoc()): ?>
-                                    <li><a class="dropdown-item" href="brands.php?id=<?= htmlspecialchars($brand['id']) ?>"><?= htmlspecialchars($brand['brand_name']) ?></a></li>
-                                <?php endwhile; ?>
-                            </ul>
-                        </li>
-                        <?php if ($logStatus == 1): ?>
-                            <li class="nav-item">
-                                <a class="nav-link " href="compare.php">Compare</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="poll.php">Poll</a>
-                            </li>
-                        <?php else: ?>
+<?php
+ include("nav.php");
 
-                        <?php endif; ?>
-                    </ul>
-                    <div class="d-flex">
-                        <?php if ($logStatus == 1): ?>
-                            <div class="d-flex align-items-center">
-                                <div class="text-center">
-                                    <img src="uploads/user/<?= htmlspecialchars($profile) ?>" style="max-height:40px;" class="rounded-circle me-2 img-fluid">
-                                </div>
-                                <span class="me-3 fs-5 border-end border-1 border-secondary pe-3 ">@<?= htmlspecialchars($username) ?></span>
-                                <a href="logout.php" class="btn btn-outline-danger  " style="width: auto;"> <i class="bi bi-box-arrow-right"></i> Logout</a>
-                            </div>
-                        <?php else: ?>
-                            <a href="form_login.php" class="btn btn-outline-success me-2">Login</a>
-                            <a href="form_register.php" class="btn btn-primary">Register</a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+ ?>
+
 
     <!-- Main Content Section -->
     <div class="container-fluid p-5">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-3">
                 <h5>สภาพผิว</h5>
                 <hr>
@@ -220,7 +166,7 @@ $conn->close();
                     <button type="submit" class="btn btn-primary mt-2">ค้นหา</button>
                     <hr>
                 </form>
-            </div>
+            </div> -->
 
             <div class="col-md">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
@@ -231,7 +177,9 @@ $conn->close();
                                     <div class="card">
                                         <img src="uploads/products/<?= htmlspecialchars($product['picture_name']) ?>" class="card-img-top" alt="<?= htmlspecialchars($product['pro_name']) ?>">
                                         <div class="card-body">
-                                            <h5 class="card-title"><?= htmlspecialchars($product['pro_name']) ?></h5>
+                                        <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                            <?= htmlspecialchars($product['pro_name']) ?>
+                                        </h5>
                                             <h6 class="card-subtitle mb-2 text-body-secondary">Price <?= htmlspecialchars($product['pro_price']) ?> ฿ .-</h6>
                                             <p class="card-text description"><?= htmlspecialchars($product['description']) ?></p>
                                         </div>

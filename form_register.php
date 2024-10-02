@@ -58,27 +58,27 @@
         <h2 class="text-center my-4">Register</h2>
         <form method="post" action="insert_register.php" enctype="multipart/form-data">
           <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
+            <label for="username" class="form-label">Username (ชื่อ) <span style="color: red;">***</span></label>
             <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
+            <label for="password" class="form-label">Password (รหัสผ่าน) <span style="color: red;">***</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
           </div>
           <div class="mb-3">
-            <label for="age" class="form-label">Age</label>
-            <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required min="1">
+            <label for="age" class="form-label">Age (อายุ) <span style="color: red;">***</label>
+            <input type="number" class="form-control" id="age" name="age" maxlength="10" placeholder="Enter your age" required>
           </div>
           <div class="mb-3">
-            <label for="number" class="form-label">Phone</label>
+            <label for="number" class="form-label">Phone (เบอร์โทร) <span style="color: red;">***</label>
             <input type="text" class="form-control" id="number" name="number" maxlength="10" placeholder="Enter your phone number" required>
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
+            <label for="email" class="form-label">Email (อีเมล) <span style="color: red;">***</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
           </div>
           <div class="mb-3">
-            <label for="Profilepicture" class="form-label">Profile Picture</label>
+            <label for="Profilepicture" class="form-label">Profile Picture (รูปโปรไฟล์) <span style="color: red;">*** </label>
             <input type="file" class="form-control" id="Profilepicture" name="Profilepicture" required>
           </div>
 

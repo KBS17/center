@@ -14,8 +14,10 @@
 }
 
 .text-BF6159 {
-  color: #9a9794;
+  color: #bf6159;
 }
+
+/* 9a9794 */
 
 .radio-section {
   display: flex;
@@ -128,3 +130,9 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
+.nav-link {
+  font-family: 'Prata', serif;
+}
+

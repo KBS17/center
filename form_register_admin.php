@@ -58,19 +58,19 @@
         <h2 class="text-center my-4">Register</h2>
         <form method="post" action="insert_register_admin.php">
           <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
+            <label for="username" class="form-label">Username(ชื่อ)</label>
             <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required autocomplete="username">
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
+            <label for="password" class="form-label">Password(รหัสผ่าน)</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required autocomplete="new-password">
           </div>
           <div class="mb-3">
-            <label for="number" class="form-label">Phone</label>
+            <label for="number" class="form-label">Phone(เบอร์โทร)</label>
             <input type="text" class="form-control" id="number" name="number" maxlength="10" placeholder="Enter your phone number" required autocomplete="tel">
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
+            <label for="email" class="form-label">Email(อีเมล)</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required autocomplete="email">
           </div>
           <div class="d-grid mb-3">

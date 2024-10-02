@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['admin'] = 1;
 
             error_log("Login successful for user: " . $username);
-            header('Location: admin/edit_m.php');
+            header('Location: admin/index.php');
             exit();
         } else {
             error_log("Password verification failed for user: " . $username);

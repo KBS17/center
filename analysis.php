@@ -3,18 +3,11 @@ include("config/config.php");
 session_start();
 
 $logStatus = isset($_SESSION['logStatus']) ? $_SESSION['logStatus'] : 0;
-$username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
-$userud = isset($_SESSION['userId']) ? $_SESSION['userId'] : null;
-$profile = isset($_SESSION['profile_picture']) ? $_SESSION['profile_picture'] : null;
 
 if ($logStatus == 0) {
     header("Location: form_login.php");
 }
 
-$sql1 = "SELECT * FROM categories ";
-$result1 = mysqli_query($conn, $sql1);
-$sql2 = "SELECT * FROM brands ";
-$result2 = mysqli_query($conn, $sql2);
 
 
 $a1 = $_GET['q1'];
@@ -56,112 +49,70 @@ $productResult = $stmt2->get_result();
 </head>
 
 <body>
-    <header class="px-5 d-flex align-items-center" style="background-color: #D9D9D9;">
-        <nav class="navbar navbar-expand-lg" style="width: 100%;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/center">
-                    <img src="img/logo.png" width="100" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="conmetic.php">Cosmetic</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="skincare.php">Skin care</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Categories
-                            </a>
-                            <ul class="dropdown-menu">
-                                <?php while ($categories = $result1->fetch_assoc()): ?>
-                                    <li><a class="dropdown-item" href="categories.php?id=<?= htmlspecialchars($categories['id']) ?>"><?= htmlspecialchars($categories['categories_name']) ?></a></li>
-                                <?php endwhile; ?>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Brands
-                            </a>
-                            <ul class="dropdown-menu">
-                                <?php while ($brands = $result2->fetch_assoc()): ?>
-                                    <li><a class="dropdown-item" href="brands.php?id=<?= htmlspecialchars($brands['id']) ?>"><?= htmlspecialchars($brands['brand_name']) ?></a></li>
-                                <?php endwhile; ?>
-                            </ul>
-                        </li>
-                        <?php if ($logStatus == 1): ?>
-                            <li class="nav-item">
-                                <a class="nav-link " href="compare.php">Compare</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="poll.php">Poll</a>
-                            </li>
-                        <?php else: ?>
 
-                        <?php endif; ?>
-                    </ul>
+    <?php
+ include("nav.php");
 
-                    <?php if ($logStatus == 1): ?>
-                        <div class="d-flex align-items-center">
-                            <div class="text-center">
-                                <img src="uploads/user/<?= htmlspecialchars($profile) ?>" style="max-height:40px;" class="rounded-circle me-2 img-fluid">
-                            </div>
-                            <span class="me-3 fs-5 border-end border-1 border-secondary pe-3 ">@<?= htmlspecialchars($username) ?></span>
-                            <a href="logout.php" class="btn btn-outline-danger  " style="width: auto;"> <i class="bi bi-box-arrow-right"></i> Logout</a>
-                        </div>
-                    <?php else: ?>
-                        <div>
-                            <a href="form_login.php" class="btn btn-outline-success" style="width: auto;">Login</a>
-                            <a href="form_register.php" class="btn btn-primary" style="width: auto;">Register</a>
-                        </div>
-                    <?php endif; ?>
+ ?>
 
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container mt-5  px-5 row flex-lg-row-reverse align-items-center g-5 py-5">
-
-        <div class="row  row-col-lg-6">
+    <div class="container d-flex justify-content-center align-items-center flex-column mt-5 px-5 py-5">
+        <div class="row col-lg-6 text-center" style="max-width: 800px;">
             <?php if ($problemsResult->num_rows > 0): ?>
-                <?php while ($problems = $problemsResult->fetch_assoc()): ?>
-                    <h3 class=" fw-bold text-body-emphasis lh-1 mb-3"><?= htmlspecialchars($problems['problems']) ?></h3>
-                    <p class=" fs-6  fw-light"><?= htmlspecialchars($problems['description']) ?></p>
-
-                <?php endwhile; ?>
+            <?php while ($problems = $problemsResult->fetch_assoc()): ?>
+            <h3 class="fw-bold text-body-emphasis lh-1 mb-3"
+                style="text-align: center; word-spacing: -0.02em; letter-spacing: -0.02em;">
+                <?= htmlspecialchars($problems['problems']) ?>
+            </h3>
+            <p class="fs-6 fw-light"
+                style="text-align: justify; line-height: 1.6; word-spacing: -0.02em; letter-spacing: -0.02em;">
+                <?= htmlspecialchars($problems['description']) ?>
+            </p>
+            <?php endwhile; ?>
             <?php else: ?>
-                <p>No problems found.</p>
+            <p>No problems found.</p>
             <?php endif; ?>
         </div>
     </div>
 
-    <div class=" container row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-        <?php if ($productResult->num_rows > 0): ?>
+    <div class="container d-flex justify-content-center mt-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+            <?php if ($productResult->num_rows > 0): ?>
             <?php while ($product = $productResult->fetch_assoc()): ?>
-                <a href="details.php?id=<?= htmlspecialchars($product['id']) ?>" class="link-underline link-underline-opacity-0">
-                    <div class="col">
-                        <div class="card">
-                            <img src="uploads/products/<?= htmlspecialchars($product['picture_name']) ?>" class="card-img-top" alt="<?= htmlspecialchars($product['pro_name']) ?>">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= htmlspecialchars($product['pro_name']) ?></h5>
-                                <h6 class="card-subtitle mb-2 text-body-secondary">Price <?= htmlspecialchars($product['pro_price']) ?> ฿ .-</h6>
-                                <p class="card-text description"><?= htmlspecialchars($product['description']) ?></p>
-                            </div>
+            <a href="details.php?id=<?= htmlspecialchars($product['id']) ?>"
+                class="link-underline link-underline-opacity-0">
+                <div class="col">
+                    <div class="card text-left">
+                        <!-- เปลี่ยนเป็น text-left -->
+                        <img src="uploads/products/<?= htmlspecialchars($product['picture_name']) ?>"
+                            class="card-img-top" alt="<?= htmlspecialchars($product['pro_name']) ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"
+                                style="text-align: left; word-spacing: -0.02em; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                <?= htmlspecialchars($product['pro_name']) ?>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary" style="text-align: left;">
+                                Price <?= htmlspecialchars($product['pro_price']) ?> ฿ .-
+                            </h6>
+                            <p class="card-text description"
+                                style="text-align: left; line-height: 1.6; word-spacing: -0.02em; letter-spacing: -0.02em;">
+                                <?= htmlspecialchars($product['description']) ?>
+                            </p>
                         </div>
                     </div>
-                </a>
+                </div>
+            </a>
             <?php endwhile; ?>
-        <?php else: ?>
+            <?php else: ?>
             <div class="col-12 text-center">
                 <p>No data available</p>
             </div>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </div>
+
+
+
+
 </body>
 
 </html>

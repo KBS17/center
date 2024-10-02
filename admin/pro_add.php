@@ -28,41 +28,10 @@ $result3 = mysqli_query($conn, $sql3);
 
 <body id="page-top">
     <div id="wrapper">
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion px-2" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3"> Admin </div>
-            </a>
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-archive-fill"></i><span>Dashboard</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="products.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลเครื่องสำอาง</span></a>
-            </li>
+    <?php
+            include("nav.php");
+        ?>
 
-            <li class="nav-item">
-                <a class="nav-link" href="edit_m.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลสมาชิก</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="skin.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลเครื่องสำอางสำหรับผิวหน้า</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="problems_m.php"><i class="bi bi-archive-fill"></i><span>ข้อมูลการแนะนำเครื่องสำอาง</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="review_mes.php"><i class="bi bi-archive-fill"></i><span>จัดการข้อมูลการรีวิว</span></a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-box-arrow-right"></i><span>logout </span></a>
-            </li> -->
-        </ul>
-        </ul>
-        <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -86,7 +55,7 @@ $result3 = mysqli_query($conn, $sql3);
                 <div class="container-fluid">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Add Product</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">เพิ่มเครื่องสำอาง</h6>
                         </div>
                         <div class="card-body">
                             <form action="insert_pro.php" method="post" enctype="multipart/form-data">
@@ -99,22 +68,20 @@ $result3 = mysqli_query($conn, $sql3);
                                     <div class="col">
                                         <!-- Product Name -->
                                         <div class="mb-3">
-                                            <label for="ProductName" class="form-label">Product Name</label>
-                                            <input type="text" class="form-control" name="proname" id="ProductName"
-                                                placeholder="Product name" required>
+                                            <label for="ProductName" class="form-label">ชื่อเครื่องสำอาง</label>
+                                            <input type="text" class="form-control" name="proname" id="ProductName"required>
                                         </div>
                                         <!-- Product price -->
                                         <div class="mb-3">
-                                            <label for="ProductPrice" class="form-label">Product Name</label>
-                                            <input type="number" class="form-control" name="proprice" id="ProductPrice"
-                                                placeholder="Product price" required>
+                                            <label for="ProductPrice" class="form-label">ราคา</label>
+                                            <input type="number" class="form-control" name="proprice" id="ProductPrice"required>
                                         </div>
 
                                         <!-- Product Type -->
                                         <div class="mb-3">
-                                            <label for="ProductType" class="form-label">Product Type</label>
+                                            <label for="ProductType" class="form-label">ประเภท</label>
                                             <select class="form-select" name="type_id" aria-label="ProductType" required>
-                                                <option selected disabled>Select Product Type</option>
+                                                <option selected disabled></option>
                                                 <?php while ($typeProducts = $result3->fetch_assoc()): ?>
                                                     <option value=<?= $typeProducts['id'] ?>><?= $typeProducts['type_name'] ?></option>
                                                 <?php endwhile; ?>
@@ -123,9 +90,9 @@ $result3 = mysqli_query($conn, $sql3);
 
                                         <!-- Product Categories -->
                                         <div class="mb-3">
-                                            <label for="ProductCategories" class="form-label">Product Categories</label>
+                                            <label for="ProductCategories" class="form-label">หมวดหมู่</label>
                                             <select class="form-select" name="categories_id" aria-label="ProductCategories" required>
-                                                <option selected disabled>Select Product Categories</option>
+                                                <option selected disabled></option>
                                                 <?php while ($categories = $result1->fetch_assoc()): ?>
                                                     <option value=<?= $categories['id'] ?>><?= $categories['categories_name'] ?></option>
                                                 <?php endwhile; ?>
@@ -134,9 +101,9 @@ $result3 = mysqli_query($conn, $sql3);
 
                                         <!-- Product Brands -->
                                         <div class="mb-3">
-                                            <label for="ProductBrands" class="form-label">Product Brands</label>
+                                            <label for="ProductBrands" class="form-label">แบรนด์</label>
                                             <select class="form-select" name="brand_id" aria-label="ProductBrands" required>
-                                                <option selected disabled>Select Product Brands</option>
+                                                <option selected disabled></option>
                                                 <?php while ($brand = $result2->fetch_assoc()): ?>
                                                     <option value=<?= $brand['id'] ?>><?= $brand['brand_name'] ?></option>
                                                 <?php endwhile; ?>
@@ -145,19 +112,40 @@ $result3 = mysqli_query($conn, $sql3);
 
                                         <!-- Product Description -->
                                         <div class="mb-3">
-                                            <label for="ProductDescription" class="form-label">Product Description</label>
+                                            <label for="ProductDescription" class="form-label">รายละเอียด</label>
                                             <textarea class="form-control" name="description" id="ProductDescription" rows="5" required></textarea>
                                         </div>
 
                                         <!-- Main Product Picture Upload -->
-                                        <div class="mb-3">
-                                            <label for="showimages" class="form-label">Main Product Picture</label>
+                                        <!-- <div class="mb-3">
+                                            <label for="showimages" class="form-label">รูปเครื่องสำอางหลัก</label>
                                             <input type="file" class="form-control" id="showimages" name="showimages" accept="image/*" required>
-                                        </div>
+                                        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                         <!-- Additional Product Pictures Upload -->
                                         <div class="mb-3">
-                                            <label for="images" class="form-label">Other Product Pictures</label>
+                                            <label for="images" class="form-label">รูปเครื่องสำอางรอง</label>
                                             <input type="file" name="images[]" id="images" class="form-control" multiple accept="image/*">
                                         </div>
 
